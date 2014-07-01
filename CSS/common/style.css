@@ -1,0 +1,539 @@
+/*http://codecanyon.net/theme_previews/5623489-talos-animated-dropdown-menu */
+
+form {
+	color: white;
+}
+
+div.background
+{
+	position: fixed;
+
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+
+	background-image: url("../../Bilder/running.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+
+div.main
+{
+	position: absolute;
+
+	top: 10px;
+	left: 20%;
+	right: 20%;
+	height: auto;
+
+	background: rgba(00,00,00,0.5);
+
+	box-shadow: -10px 5px 15px #000000, 10px 5px 15px #000000;
+
+}
+
+div.login_fog {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 200;
+	width: 100%;
+	height: 100%;
+	background: rgba(00,00,00,0.7);
+	display: none;
+}
+
+div.contain {
+	position: relative;
+
+	top: 10px;
+	left: 10px;
+	width: 1500px;
+
+
+	margin-bottom: 40px;
+	height: auto;
+	float:left;
+
+	background: rgba(00,00,00,0.6);
+	color: white;
+	clear:both;
+}
+
+
+/* ----- Skapa Användare ----- */
+
+form.skapa {
+	position: relative;
+	left: 20px;
+	top: 20px;
+	width: 350px;
+	height: auto;
+	padding-left: 15px;
+	padding-bottom: 5px;
+	margin-bottom: 40px;
+	padding-top: 20px;
+
+	background: rgba(255,255,255,0.4);
+}
+span.skapa_header {
+	font-size: 15pt;
+	position: relative;
+	color:white;
+	text-align: center;
+	top: -10px;
+	left: 25px;
+	width: 300px;
+	height: 50px;
+	border-bottom: 2px solid white;
+
+}
+
+div.formular
+{
+	position: absolute;
+
+	left: 20px;
+	right: 20px;
+	top: 160px;
+	height: 1400px;
+
+	background-color: white;
+
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+
+div.bild {
+	position: relative;
+
+	top: -15px;
+	width: 200px;
+	height: 200px;
+	left: 75px;
+}
+
+img.profilbild {
+	position :absolute;
+
+	display:block;
+	left: 0px;
+	width: 200px;
+	top: 0px;
+	height: 200px;
+}
+
+/* ----- FLIKAR ----- */
+
+a.top_link {
+	position: relative;
+
+	top: 10px;
+	left: 10px;
+	height: 35px;
+	width: 100px;
+	float:left;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-right: 1px;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	line-height: 30px;
+	font-size: 14pt;
+	border: 1px solid black;
+	border-bottom: none;
+
+	display: blocK;
+	background: rgba(00,00,00,0.4);
+}
+
+a.top_link#active {
+	background: rgba(00,00,00,0.6);
+}
+
+a.top_link:hover {
+	background: rgba(00,00,00,0.5);
+	color:orange;
+}
+
+/* ----- Small-Calendar ----- */
+
+div.sok p {
+	position:relative;
+	color:white;
+	left: 20px;
+	top: 20px;
+}
+
+div.sok form {
+	position: relative;
+	color:white;
+	left: 20px;
+	top: 20px;
+
+
+}
+
+div.sok_calendar {
+	position:absolute;
+
+	top: 10px;
+	left: 10px;
+	width: 200px;
+	height: 215px;
+	display:none;
+
+	z-index: 96;
+
+	background-color:white;
+}
+
+table.sok_table{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	top: 30px;
+
+}
+
+table.sok_table td#dag {
+	background-color: gray;
+}
+
+table.sok_table td#dag:hover{
+	background-color: gray;
+	cursor: default;
+}
+
+table.sok_table td.last {
+	background-color:lightgray;
+}
+
+table.sok_table td {
+	position: relative;
+	border: solid 1px black;
+	width: 20px;
+	height: 20px;
+
+	text-align:center;
+}
+
+table.sok_table td:hover {
+	background-color: orange;
+	cursor:pointer;
+}
+
+button.sok_calendar {
+	position: absolute;
+
+	top: 0px;
+
+	width: 35px;
+	height: 35px;
+	border: none;
+
+	background: url("Bilder/small-calendar-left.png") no-repeat;
+
+
+}
+
+button#left {
+	left: 5px;
+}
+
+button#right {
+	background: url("Bilder/small-calendar-right.png") no-repeat;
+	right: 3px;
+}
+
+button.sok_calendar:hover {
+	cursor: pointer;
+}
+
+button.sok_calendar:active {
+	border: inset 2px black;
+}
+
+p.date {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: -12px;
+	float:left;
+	text-align: center;
+
+}
+
+/* ----- Notis-Center -----*/
+
+div.notis_center {
+	position:fixed;
+
+	width: 40em;
+	left: -60em;
+	top: 10em;
+	height: 40em;
+
+	background: rgba(00,00,00,0.7);
+	z-index: 107;
+}
+
+div.button {
+	position: fixed;
+	top: 15em;
+	height: 6em;
+	left: 0em;
+	width: 2.5em;
+	background-color: gray;
+	border-bottom-right-radius: 1em;
+	border-top-right-radius: 1em;
+	z-index: 108;
+}
+
+div.notis_center div.meddelanden {
+	position: absolute;
+	top: 3.225em;
+	left: 0.25em;
+	width: 25em;
+	height: 31em;
+
+	background: rgba(00,00,00,1);
+
+}
+
+div.notis_center div.lista {
+	position: absolute;
+	top: 0.25em;
+	right: 0.25em;
+	width: 12em;
+	height: 29em;
+
+	background: rgba(00,00,00,1);
+	text-align: center;
+	color: white;
+	font-size: 14pt;
+}
+
+div.notis_center button.notis {
+	position: absolute;
+	top: 0.25em;
+	left: 0.25em;
+	height: 2.5em;
+	width: 10.8em;
+	color:white;
+	border: none;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	font-size: 14pt;
+	border: 2px solid gray;
+	border-bottom: none;
+
+	background: rgba(00,00,00,0.5);
+}
+
+div.notis_center button.active {
+	background: rgba(00,00,00,1);
+	border: 2px solid white;
+	border-bottom: none;
+}
+
+div.notis_center button#notis {
+	left: 206px;
+
+}
+
+div.notis_center button.notis:hover {
+	color: orange;
+	background: rgba(00,00,00,0.7);
+	border: 2px solid white;
+	cursor: pointer;
+	border-bottom: none;
+}
+
+div.notis_center button.active:hover {
+	background: rgba(00,00,00,1);
+}
+
+div.notis_center div.meddelanden div.meddelanden_display {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+
+	border: 2px solid white;
+	border-radius: 10px;
+	background-color:gray;
+	overflow-x: none;
+	overflow-y: scroll;
+}
+
+div.notis_center div.lista div.lista_display {
+	position: absolute;
+	top: 50px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+
+	border: 2px solid white;
+	border-radius: 10px;
+	background-color:gray;
+}
+
+div.notis_center div.lista div.lista_display div.user, div.notis_center div.lista div.lista_display div.notis_lista {
+	position: relative;
+	top: 0px;
+	height: 20px;
+	left: 0px;
+	right: 0px;
+	color:white;
+}
+
+div.notis_center div.lista div.lista_display div.user:hover, div.notis_center div.lista div.lista_display div.notis_lista:hover {
+	background: rgba(00,00,00,0.7);
+	cursor: pointer;
+}
+
+div.notis_center div.lista div.lista_display div.active {
+	background: rgba(00,00,00,0.7);
+}
+
+div.notis_center div.lista div.meddelanden_display div.meddelande {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: auto;
+
+}
+
+div.meddelanden span.meddelande_info {
+	color:white;
+}
+
+div.skriv {
+	position: absolute;
+	right: 0.25em;
+	left: 0.25em;
+	bottom: 0.25em;
+	height: 5.5em;
+
+	background: rgba(00,00,00,0.7);
+}
+
+form.msg {
+	position: absolute;
+	left: 0.1em;
+	right: 0.5em;
+	top: 0.1em;
+	bottom: 0.1em;
+}
+
+form.msg textarea.msg {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 100%;
+	resize: none;
+	background-color: gray;
+	border-radius: 10px;
+}
+
+form.msg input.skicka {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	border: black solid 2px;
+}
+
+form.msg input.skicka:hover {
+	background-color: gray;
+	color: orange;
+	cursor:pointer;
+}
+
+form.msg input.skicka:active {
+	border: white solid 2px;
+	background-color: gray;
+}
+
+div.friendreq {
+	position: relative;
+
+	width: 100%;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+
+	background-color: black;
+	color: white;
+}
+
+button.acc_req {
+	position: absolute;
+	right: 70px;
+	top: 12px;
+	width: 75px;
+	height: 25px;
+	background-color: green;
+}
+
+button.dec_req {
+	position: absolute;
+	right: 5px;
+	top: 12px;
+	width: 60px;
+	height: 25px;
+	background-color: red;
+}
+
+/* ----- Footer ----- */
+
+div.footer {
+
+	position: relative;
+	
+	float: left;
+	height: 5em;
+	width: 100%;
+	left: 0em;
+	bottom: 0em;
+	
+	background: rgba(00,00,00,0.5);
+
+}
+
+
+/* ----- Common ----- */
+
+span.content {
+	position: relative;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	height: auto;
+	margin-bottom: 15px;
+	font-size: 14pt;
+
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2) {
+
+	span.content {
+		font-size: 11pt;
+	}
+
+	div.news {
+		font-size: 14pt;
+	}
+	h1 {
+		font-size: 14pt;
+	}
+
+}
