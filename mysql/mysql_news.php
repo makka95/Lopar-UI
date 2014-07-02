@@ -15,7 +15,7 @@ function get_news () {
 		$new_query_run = $connect->query($new_query);
 		$new_query_result = mysqli_fetch_assoc($new_query_run);
 		print '<a href="news.php?id=' . $id . '" class="news"><h1>' .  mb_convert_encoding($new_query_result['Subject'], "UTF-8") . '</h1></a><span class="news_date">' .  date("Y-m-d", time($new_query_result['Datum'])) . '</span></div>';
-		print '<div class="news_text"><span class="content">' .  mb_convert_encoding($new_query_result['Text'],"UTF-8") . '</span></div>';
+		print '<div class="news_text"><img src="Bilder/news_image.jpg" alt="Springer">' .  mb_convert_encoding($new_query_result['Text'],"UTF-8") . '</div>';
 		print '</div>';
 		$count++;
 		

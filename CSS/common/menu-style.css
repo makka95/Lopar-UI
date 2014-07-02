@@ -164,7 +164,7 @@ div.loggain {
 	display: none;
 
 	width: 19em;
-	height: 18em;
+	height: 16em;
 	top: 10em;
 	margin-left: auto;
 	margin-right: auto;
@@ -231,7 +231,7 @@ form.login input[type=text]:focus, form.login input[type=password]:focus {
 form.login input[type=submit] {
 	position: absolute;
 	left: 0.8em;
-	top: 10.5em;
+	top: 8.5em;
 	width: 6em;
 	height: 2.5em;
 	border-radius: 0.5em;
@@ -245,6 +245,7 @@ form.login input[type=submit] {
 form.login input[type=submit]:hover {
 	cursor:pointer;
 	color: orange;
+	border: 2px solid orange;
 	
 }
 
@@ -280,8 +281,7 @@ button.fadeout:hover{
 	right: 225px;
 }
 
-button.inlogg
-{
+button.inlogg {
 	position: relative;
 	background: none;
 	padding: 0px;
@@ -292,13 +292,12 @@ button.inlogg
 	color: white;
 
 	font-size: 12pt;
-	font-family: Corbel, Verdana, "Bitstream Vera Sans", sans-serif;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 	text-decoration: none;
 	font-weight: none;
 
 }
-button.inlogg:hover
-{
+button.inlogg:hover {
 	color: orange;
 	cursor:pointer;
 }
@@ -311,6 +310,7 @@ span.login_text {
 	
 	top: 0.3em;
 	left: 0.6em;
+	color: black;
 	
 }
 
@@ -326,12 +326,10 @@ span.login_text {
 	div.inlogg a {
 		font-size: 10pt;
 	}
-	span.tracker {
+	span.tracker, a.tracker {
 		font-size:10pt;
 		top: 70px;
+		font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 	}
-	a.tracker {
-		font-size:10pt;
-		top: 70px;
-	}
+
 }

@@ -346,10 +346,12 @@ $(document).ready(function () {
 
 	$("div.button").click(function () {
 	// 'toggle'
+		
 		if ($("div.notis_center").css("left") == "0px") {
+
 			$("div.notis_center").animate({
 				left: parseInt($("div.notis_center").css("width"), 10)*-1
-			}, 500)
+			}, 500);
 		} else {
 			get_friends();
 			get_meddelanden(null);
@@ -359,6 +361,7 @@ $(document).ready(function () {
 		}
 
 	});
+	
 	$("button.notis").click(function () {
 		if(!$(this).hasClass('active')) {
 			$("button.notis").removeClass("notis active").addClass("notis");
@@ -368,22 +371,22 @@ $(document).ready(function () {
 				$("div.skriv").hide();
 				$("div.meddelanden_display").empty();
 				$("div.meddelanden").animate({
-					height: "650"
+					height: "36.5em"
 				}, 200);
 				$("div.lista_display").empty();
 				$("div.lista").animate({
-					height: "695"
+					height: "34em"
 				}, 200);
 				notis_lista();
 			} else {
 				$("div.skriv").show();
 				$("div.meddelanden_display").empty();
 				$("div.meddelanden").animate({
-					height: "550"
+					height: "31em"
 				}, 200);
 				$("div.lista_display").empty();
 				$("div.lista").animate({
-					height: "595"
+					height: "29em"
 				}, 200);
 				get_friends();
 				get_meddelanden(null);

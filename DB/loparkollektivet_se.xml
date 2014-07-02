@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 3.5.8.2
+- http://www.phpmyadmin.net
+-
+- Host: s443.loopia.se
+- Generation Time: Jul 01, 2014 at 05:05 PM
+- Server version: 5.5.31
+- PHP Version: 5.3.6
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="loparkollektivet_se" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="Anvandare">
+                CREATE TABLE `Anvandare` (
+                  `ID` int(5) NOT NULL AUTO_INCREMENT,
+                  `Nickname` varchar(35) NOT NULL,
+                  `Password` varchar(32) DEFAULT NULL,
+                  `Fornamn` varchar(20) DEFAULT NULL,
+                  `Efternamn` varchar(20) DEFAULT NULL,
+                  `Kon` varchar(6) DEFAULT NULL,
+                  `Lan` varchar(15) DEFAULT NULL,
+                  `Aktivitetsgrad` int(2) DEFAULT NULL,
+                  `Email` varchar(50) NOT NULL,
+                  `User_lvl` varchar(1) NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Blogg">
+                CREATE TABLE `Blogg` (
+                  `ID` int(11) NOT NULL AUTO_INCREMENT,
+                  `Rubrik` tinytext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `Text` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `Skapare` int(11) NOT NULL,
+                  `Datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Categories">
+                CREATE TABLE `Categories` (
+                  `ID` int(3) NOT NULL AUTO_INCREMENT,
+                  `Namn` varchar(50) NOT NULL,
+                  `Description` varchar(200) NOT NULL,
+                  `Categorie_group` int(2) NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Counter">
+                CREATE TABLE `Counter` (
+                  `Count` int(30) NOT NULL,
+                  PRIMARY KEY (`Count`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Events">
+                CREATE TABLE `Events` (
+                  `ID` int(11) NOT NULL AUTO_INCREMENT,
+                  `Skapare` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL,
+                  `Namn` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+                  `Plats` tinytext COLLATE utf8_unicode_ci,
+                  `Synlighet` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+                  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `Sport` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="Friends">
+                CREATE TABLE `Friends` (
+                  `ID` int(6) NOT NULL AUTO_INCREMENT,
+                  `Friend_1` int(6) NOT NULL,
+                  `Friend_2` int(6) NOT NULL,
+                  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Friend_Request">
+                CREATE TABLE `Friend_Request` (
+                  `Friend_1` int(6) NOT NULL,
+                  `Friend_2` int(6) NOT NULL,
+                  `Status` int(1) NOT NULL,
+                  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`Friend_1`,`Friend_2`),
+                  KEY `fri` (`Friend_1`,`Friend_2`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Har_Notifikation">
+                CREATE TABLE `Har_Notifikation` (
+                  `Anv_ID` int(6) NOT NULL,
+                  `Evt_ID` int(6) NOT NULL,
+                  `Type` int(1) NOT NULL,
+                  `Level` int(1) NOT NULL,
+                  PRIMARY KEY (`Anv_ID`,`Evt_ID`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Meddelanden">
+                CREATE TABLE `Meddelanden` (
+                  `ID` int(6) NOT NULL AUTO_INCREMENT,
+                  `Anvandare_ID_Avsandare` int(6) NOT NULL,
+                  `Anvandare_ID_Mottagare` int(6) NOT NULL,
+                  `Text` text NOT NULL,
+                  `Status` varchar(1) NOT NULL,
+                  `Datum_Skapat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  `Datum_Sett` datetime DEFAULT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="News">
+                CREATE TABLE `News` (
+                  `ID` int(3) NOT NULL AUTO_INCREMENT,
+                  `Subject` tinytext CHARACTER SET latin1 NOT NULL,
+                  `Text` text CHARACTER SET latin1 NOT NULL,
+                  `Skapare` int(5) NOT NULL,
+                  `Datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`ID`),
+                  FULLTEXT KEY `Subject` (`Subject`,`Text`),
+                  FULLTEXT KEY `Text` (`Text`),
+                  FULLTEXT KEY `Subject_2` (`Subject`),
+                  FULLTEXT KEY `Text_2` (`Text`,`Subject`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="Notifikationer">
+                CREATE TABLE `Notifikationer` (
+                  `ID` int(6) NOT NULL AUTO_INCREMENT,
+                  `Anvandare_ID` int(6) NOT NULL,
+                  `Not_ID` int(6) NOT NULL,
+                  `Status` varchar(1) NOT NULL,
+                  `Type` int(1) NOT NULL,
+                  `Text` tinytext NOT NULL,
+                  `Datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:view name="Nytt_Forum">
+                CREATE ALGORITHM=UNDEFINED DEFINER=`admin@l83291`@`%` SQL SECURITY DEFINER VIEW `loparkollektivet_se`.`Nytt_Forum` AS (select `loparkollektivet_se`.`Posts`.`Thread_id` AS `ID`,`loparkollektivet_se`.`Threads`.`Subject` AS `Subject`,`loparkollektivet_se`.`Posts`.`Time` AS `Time` from (`loparkollektivet_se`.`Posts` join `loparkollektivet_se`.`Threads` on((`loparkollektivet_se`.`Posts`.`Thread_id` = `loparkollektivet_se`.`Threads`.`ID`))) group by `loparkollektivet_se`.`Posts`.`Thread_id` order by `loparkollektivet_se`.`Posts`.`Time` desc limit 0,10);
+            </pma:view>
+            <pma:table name="Plats">
+                CREATE TABLE `Plats` (
+                  `ID` int(6) NOT NULL AUTO_INCREMENT,
+                  `Event_ID` int(6) NOT NULL,
+                  `Koordinater` varchar(128) NOT NULL,
+                  `Text` varchar(128) NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Posts">
+                CREATE TABLE `Posts` (
+                  `ID` int(8) NOT NULL AUTO_INCREMENT,
+                  `Cat_id` int(3) NOT NULL,
+                  `Thread_id` int(3) NOT NULL,
+                  `User_id` int(8) NOT NULL,
+                  `Text` varchar(250) COLLATE utf8_swedish_ci NOT NULL,
+                  `Titel` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
+                  `Time` datetime NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+            </pma:table>
+            <pma:table name="Status">
+                CREATE TABLE `Status` (
+                  `ID_Anv` int(11) NOT NULL,
+                  `ID_Evt` int(11) NOT NULL,
+                  `Status` int(11) NOT NULL,
+                  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`ID_Anv`,`ID_Evt`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Threads">
+                CREATE TABLE `Threads` (
+                  `ID` int(8) NOT NULL AUTO_INCREMENT,
+                  `Subject` varchar(100) CHARACTER SET latin1 NOT NULL,
+                  `Time` datetime NOT NULL,
+                  `User_id` int(8) NOT NULL,
+                  `Categorie_id` int(3) NOT NULL,
+                  PRIMARY KEY (`ID`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'loparkollektivet_se'
+    -->
+    <database name="loparkollektivet_se">
+        <!-- Table Anvandare -->
+        <table name="Anvandare">
+            <column name="ID">11</column>
+            <column name="Nickname">Makka95</column>
+            <column name="Password">d0b1feb7af8dc60e279b538bb790fa38</column>
+            <column name="Fornamn">Marcus</column>
+            <column name="Efternamn">Hanikat</column>
+            <column name="Kon">Man</column>
+            <column name="Lan">Stockholm</column>
+            <column name="Aktivitetsgrad">3</column>
+            <column name="Email">macan95@hotmail.com</column>
+            <column name="User_lvl">A</column>
+        </table>
+        <table name="Anvandare">
+            <column name="ID">12</column>
+            <column name="Nickname">Madde</column>
+            <column name="Password">d0b1feb7af8dc60e279b538bb790fa38</column>
+            <column name="Fornamn">Madelene</column>
+            <column name="Efternamn">Hanikat</column>
+            <column name="Kon">Kvinna</column>
+            <column name="Lan">Stockholm</column>
+            <column name="Aktivitetsgrad">3</column>
+            <column name="Email">Macan95@hotmail.com</column>
+            <column name="User_lvl">A</column>
+        </table>
+        <table name="Anvandare">
+            <column name="ID">13</column>
+            <column name="Nickname">Robert</column>
+            <column name="Password">d0b1feb7af8dc60e279b538bb790fa38</column>
+            <column name="Fornamn">Robert</column>
+            <column name="Efternamn">Hanning</column>
+            <column name="Kon">Man</column>
+            <column name="Lan">Stockholm</column>
+            <column name="Aktivitetsgrad">5</column>
+            <column name="Email">macan95@hotmail.com</column>
+            <column name="User_lvl">A</column>
+        </table>
+        <table name="Anvandare">
+            <column name="ID">14</column>
+            <column name="Nickname">midgetPornIsKinkyÂ§</column>
+            <column name="Password">5de07cfc8683cbeffcd67243132850a5</column>
+            <column name="Fornamn">Big</column>
+            <column name="Efternamn">Sexy</column>
+            <column name="Kon">Man</column>
+            <column name="Lan">Stockholm</column>
+            <column name="Aktivitetsgrad">5</column>
+            <column name="Email">sugavmig@hotmale.com</column>
+            <column name="User_lvl"></column>
+        </table>
+        <table name="Anvandare">
+            <column name="ID">15</column>
+            <column name="Nickname">Bammer</column>
+            <column name="Password">d0b1feb7af8dc60e279b538bb790fa38</column>
+            <column name="Fornamn">Marcus</column>
+            <column name="Efternamn">Hanikat</column>
+            <column name="Kon">Man</column>
+            <column name="Lan">Stockholm</column>
+            <column name="Aktivitetsgrad">5</column>
+            <column name="Email">macan</column>
+            <column name="User_lvl"></column>
+        </table>
+        <!-- Table Blogg -->
+        <table name="Blogg">
+            <column name="ID">1</column>
+            <column name="Rubrik">Första Bloggen</column>
+            <column name="Text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at pharetra arcu. Praesent ante lectus, congue eget pellentesque ac, vestibulum ut lectus. Cras at placerat libero. Aliquam rhoncus cursus mauris, sit amet gravida dolor fringilla sit amet amet. </column>
+            <column name="Skapare">11</column>
+            <column name="Datum">2014-02-20 14:55:46</column>
+        </table>
+        <table name="Blogg">
+            <column name="ID">2</column>
+            <column name="Rubrik">hej hej</column>
+            <column name="Text">dÃ¥</column>
+            <column name="Skapare">11</column>
+            <column name="Datum">2014-02-23 18:09:08</column>
+        </table>
+        <!-- Table Categories -->
+        <table name="Categories">
+            <column name="ID">1</column>
+            <column name="Namn">Test</column>
+            <column name="Description">Detta är ett test</column>
+            <column name="Categorie_group">0</column>
+        </table>
+        <table name="Categories">
+            <column name="ID">2</column>
+            <column name="Namn">Test2</column>
+            <column name="Description">Detta är också ett test</column>
+            <column name="Categorie_group">0</column>
+        </table>
+        <table name="Categories">
+            <column name="ID">3</column>
+            <column name="Namn">Test3</column>
+            <column name="Description">Detta är test</column>
+            <column name="Categorie_group">1</column>
+        </table>
+        <table name="Categories">
+            <column name="ID">4</column>
+            <column name="Namn">Test4</column>
+            <column name="Description">Detta är test</column>
+            <column name="Categorie_group">1</column>
+        </table>
+        <table name="Categories">
+            <column name="ID">5</column>
+            <column name="Namn">Test5</column>
+            <column name="Description">Detta är test</column>
+            <column name="Categorie_group">2</column>
+        </table>
+        <table name="Categories">
+            <column name="ID">6</column>
+            <column name="Namn">Test6</column>
+            <column name="Description">Detta är test</column>
+            <column name="Categorie_group">2</column>
+        </table>
+        <!-- Table Counter -->
+        <table name="Counter">
+            <column name="Count">24</column>
+        </table>
+        <!-- Table Events -->
+        <table name="Events">
+            <column name="ID">7</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Träna</column>
+            <column name="Plats">aaa</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2013-12-07 23:01:42</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">11</column>
+            <column name="Skapare"></column>
+            <column name="Namn">abc</column>
+            <column name="Plats">def</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-01-05 07:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">12</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Testar</column>
+            <column name="Plats">Kvarnï¿½ngen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-02-08 00:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">13</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Ishockey</column>
+            <column name="Plats">KvarnÃ¤ngen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-01-04 07:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">14</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Fotboll</column>
+            <column name="Plats">KvarnÃ¤ngen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-01-04 07:30:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">15</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Innebandy</column>
+            <column name="Plats">KvarnÃ¤ngen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-01-04 08:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">16</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Gymma</column>
+            <column name="Plats">KvarnÃ¤ngen</column>
+            <column name="Synlighet"></column>
+            <column name="Date">2014-01-04 06:30:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">17</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Ishockey</column>
+            <column name="Plats">KvarnÃ¤ngen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-01-04 08:30:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">18</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">emil</column>
+            <column name="Plats">Puls OCh tï¿½rning</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-03-07 00:00:00</column>
+            <column name="Sport">Styrketrän</column>
+        </table>
+        <table name="Events">
+            <column name="ID">19</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Emils Triceps Pass</column>
+            <column name="Plats">Puls Och TrÃ¤ning</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-03-21 05:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">20</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Notis test</column>
+            <column name="Plats">Testning</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-03-07 06:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">21</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">tes</column>
+            <column name="Plats">tes</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-03-08 00:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">23</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">tes</column>
+            <column name="Plats">tes</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-04-09 00:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">24</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Löpträning</column>
+            <column name="Plats">Kvarnängen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-04-28 12:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <table name="Events">
+            <column name="ID">25</column>
+            <column name="Skapare">11</column>
+            <column name="Namn">Jogging</column>
+            <column name="Plats">KvarnÃ¤ngen</column>
+            <column name="Synlighet">A</column>
+            <column name="Date">2014-05-01 08:00:00</column>
+            <column name="Sport"></column>
+        </table>
+        <!-- Table Friends -->
+        <table name="Friends">
+            <column name="ID">2</column>
+            <column name="Friend_1">11</column>
+            <column name="Friend_2">13</column>
+            <column name="Date">2014-03-23 11:25:43</column>
+        </table>
+        <table name="Friends">
+            <column name="ID">9</column>
+            <column name="Friend_1">11</column>
+            <column name="Friend_2">12</column>
+            <column name="Date">2014-04-24 12:04:34</column>
+        </table>
+        <!-- Table Friend_Request -->
+        <table name="Friend_Request">
+            <column name="Friend_1">11</column>
+            <column name="Friend_2">12</column>
+            <column name="Status">3</column>
+            <column name="Date">2014-04-24 12:04:34</column>
+        </table>
+        <table name="Friend_Request">
+            <column name="Friend_1">12</column>
+            <column name="Friend_2">13</column>
+            <column name="Status">1</column>
+            <column name="Date">0000-00-00 00:00:00</column>
+        </table>
+        <table name="Friend_Request">
+            <column name="Friend_1">13</column>
+            <column name="Friend_2">14</column>
+            <column name="Status">1</column>
+            <column name="Date">0000-00-00 00:00:00</column>
+        </table>
+        <table name="Friend_Request">
+            <column name="Friend_1">14</column>
+            <column name="Friend_2">13</column>
+            <column name="Status">2</column>
+            <column name="Date">0000-00-00 00:00:00</column>
+        </table>
+        <!-- Table Har_Notifikation -->
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">7</column>
+            <column name="Type">3</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">17</column>
+            <column name="Type">2</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">18</column>
+            <column name="Type">1</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">20</column>
+            <column name="Type">1</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">23</column>
+            <column name="Type">1</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">24</column>
+            <column name="Type">1</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">11</column>
+            <column name="Evt_ID">25</column>
+            <column name="Type">1</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">12</column>
+            <column name="Evt_ID">18</column>
+            <column name="Type">3</column>
+            <column name="Level">3</column>
+        </table>
+        <table name="Har_Notifikation">
+            <column name="Anv_ID">13</column>
+            <column name="Evt_ID">18</column>
+            <column name="Type">1</column>
+            <column name="Level">1</column>
+        </table>
+        <!-- Table Meddelanden -->
+        <table name="Meddelanden">
+            <column name="ID">1</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Hej Hej på dig leverpastej</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-23 11:33:17</column>
+            <column name="Datum_Sett">2014-03-23 00:00:00</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">2</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Hej då på dig leverpastej</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-23 11:33:17</column>
+            <column name="Datum_Sett">2014-03-23 00:00:00</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">3</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">OK OK OK Detta funkar bra</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-24 15:22:20</column>
+            <column name="Datum_Sett">0000-00-00 00:00:00</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">4</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Lorem ipsum</column>
+            <column name="Status"></column>
+            <column name="Datum_Skapat">2014-03-25 00:00:00</column>
+            <column name="Datum_Sett">0000-00-00 00:00:00</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">5</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac malesuada magna, eu eleifend velit. Vestibulum et consequat elit. Nam eleifend ligula pharetra, imperdiet sapien vel, vehicula purus. In viverra libero vel eros interdum, ac vehicula dui hendrerit. Mauris arcu leo, ornare a purus in, tincidunt accumsan eros. Vestibulum semper tristique augue in gravida. Nulla. </column>
+            <column name="Status"></column>
+            <column name="Datum_Skapat">2014-03-24 15:23:25</column>
+            <column name="Datum_Sett">2014-03-25 00:00:00</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">6</column>
+            <column name="Anvandare_ID_Avsandare">12</column>
+            <column name="Anvandare_ID_Mottagare">11</column>
+            <column name="Text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac malesuada magna, eu eleifend velit. Vestibulum et consequat elit. Nam eleifend ligula pharetra, imperdiet sapien vel, vehicula purus. In viverra libero vel eros interdum, ac vehicula dui hendrerit. Mauris arcu leo, ornare a purus in, tincidunt accumsan eros. Vestibulum semper tristique augue in gravida. Nulla. </column>
+            <column name="Status"></column>
+            <column name="Datum_Skapat">2014-03-25 00:00:00</column>
+            <column name="Datum_Sett">2014-03-27 00:00:00</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">7</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Skriv ett meddelande</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 13:36:46</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">8</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Tjenare</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 13:37:30</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">9</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">Funkar det?</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 13:39:24</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">10</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">FUCK YOU POMPEN!</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 13:46:17</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">11</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">13</column>
+            <column name="Text">Skriv ett meddelande</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 13:50:12</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">12</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">13</column>
+            <column name="Text">Skriv ett till meddelande</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 13:51:59</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">13</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">13</column>
+            <column name="Text">Trololol</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 14:00:40</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">14</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">13</column>
+            <column name="Text">Pannkakka</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 14:01:00</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">15</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">13</column>
+            <column name="Text">Funkar</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-03-25 14:03:39</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">16</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">pannkaka</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-04-25 08:55:17</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">17</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">pannkaka</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-04-25 08:55:21</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">18</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">pannkaka</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-04-25 08:55:22</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <table name="Meddelanden">
+            <column name="ID">19</column>
+            <column name="Anvandare_ID_Avsandare">11</column>
+            <column name="Anvandare_ID_Mottagare">12</column>
+            <column name="Text">pannkaka</column>
+            <column name="Status">1</column>
+            <column name="Datum_Skapat">2014-04-25 08:55:23</column>
+            <column name="Datum_Sett">NULL</column>
+        </table>
+        <!-- Table News -->
+        <table name="News">
+            <column name="ID">7</column>
+            <column name="Subject">Välkommen till Löparkollektivet!</column>
+            <column name="Text">Hej och välkommen till löparkollektivet!
+
+Löparkollektivet är en hemsida som skall göra det enklare för personer att koordinera sina träningar och hitta nya träningskamrater. Alla personer kan, efter att man har skapat ett eget konto, använda kalendern för att skapaoffentliga eller stängda träningar. Till en offentlig träning så kan alla anmäla sig medans en stängd träning så är det antingen möjligt att ansöka om att få vara med eller att värden bjuder in personer till träningen. På detta sätt så kan man koordinera träningar med allmänheten, eller enbart med sina kompisar.
+
+Denna hemsida är fortfarande under konstruktion och har inte publicerats ännu. Detta leder till att sidan inte är åtkomlig via dess address &quot;www.loparkollektivet.se&quot;. Det är även troligt att hemsidan kommer att byta namn till &quot;Träningskollektivet&quot; för att passa en bredare målgrupp. 
+
+Konstruktionen av hemsidan kommer att fortsätta för att förhopningsvis bli klar fram till midsommar. Titta gärna in då för att se det slutgilitga resultatet av hemsidan. 
+
+Hej då!</column>
+            <column name="Skapare">11</column>
+            <column name="Datum">2014-01-01 00:00:00</column>
+        </table>
+        <table name="News">
+            <column name="ID">8</column>
+            <column name="Subject">Välkommen till Löparkollektivet!</column>
+            <column name="Text">Hej och välkommen till löparkollektivet!
+
+Löparkollektivet är en hemsida som skall göra det enklare för personer att koordinera sina träningar och hitta nya träningskamrater. Alla personer kan, efter att man har skapat ett eget konto, använda kalendern för att skapaoffentliga eller stängda träningar. Till en offentlig träning så kan alla anmäla sig medans en stängd träning så är det antingen möjligt att ansöka om att få vara med eller att värden bjuder in personer till träningen. På detta sätt så kan man koordinera träningar med allmänheten, eller enbart med sina kompisar.
+
+Denna hemsida är fortfarande under konstruktion och har inte publicerats ännu. Detta leder till att sidan inte är åtkomlig via dess address &quot;www.loparkollektivet.se&quot;. Det är även troligt att hemsidan kommer att byta namn till &quot;Träningskollektivet&quot; för att passa en bredare målgrupp. 
+
+Konstruktionen av hemsidan kommer att fortsätta för att förhopningsvis bli klar fram till midsommar. Titta gärna in då för att se det slutgilitga resultatet av hemsidan. 
+
+Hej då!</column>
+            <column name="Skapare">11</column>
+            <column name="Datum">2014-01-01 00:00:00</column>
+        </table>
+        <table name="News">
+            <column name="ID">9</column>
+            <column name="Subject">Välkommen till Löparkollektivet!</column>
+            <column name="Text">Hej och välkommen till löparkollektivet!
+
+Löparkollektivet är en hemsida som skall göra det enklare för personer att koordinera sina träningar och hitta nya träningskamrater. Alla personer kan, efter att man har skapat ett eget konto, använda kalendern för att skapaoffentliga eller stängda träningar. Till en offentlig träning så kan alla anmäla sig medans en stängd träning så är det antingen möjligt att ansöka om att få vara med eller att värden bjuder in personer till träningen. På detta sätt så kan man koordinera träningar med allmänheten, eller enbart med sina kompisar.
+
+Denna hemsida är fortfarande under konstruktion och har inte publicerats ännu. Detta leder till att sidan inte är åtkomlig via dess address &quot;www.loparkollektivet.se&quot;. Det är även troligt att hemsidan kommer att byta namn till &quot;Träningskollektivet&quot; för att passa en bredare målgrupp. 
+
+Konstruktionen av hemsidan kommer att fortsätta för att förhopningsvis bli klar fram till midsommar. Titta gärna in då för att se det slutgilitga resultatet av hemsidan. 
+
+Hej då!</column>
+            <column name="Skapare">11</column>
+            <column name="Datum">2014-01-01 00:00:00</column>
+        </table>
+        <!-- Table Notifikationer -->
+        <table name="Notifikationer">
+            <column name="ID">1</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">7</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Detta är en notis om ett event med id't 7, statusen 1 och typen 1</column>
+            <column name="Datum">2014-03-27 15:00:46</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">2</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">18</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">detta är en notis från ett event med id't nr 18</column>
+            <column name="Datum">2014-03-27 15:00:46</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">3</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">18</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skett En ÄNdring I ett Event</column>
+            <column name="Datum">2014-03-28 04:20:28</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">4</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">18</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skett En Ã„Ndring I ett Event</column>
+            <column name="Datum">2014-03-28 04:21:24</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">5</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">18</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skett En Ã„Ndring I ett Event</column>
+            <column name="Datum">2014-03-28 04:22:00</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">6</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">18</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skett En Ã„Ndring I ett Event</column>
+            <column name="Datum">2014-03-28 04:22:14</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">7</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">23</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skapats ett Event</column>
+            <column name="Datum">2014-03-28 04:26:38</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">8</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">20</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Makka95 har anmÃ¤lt sig till eventet Notis test</column>
+            <column name="Datum">2014-04-01 14:56:27</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">9</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">20</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Makka95 kanske kommer till eventet Notis test</column>
+            <column name="Datum">2014-04-01 14:58:06</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">10</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">20</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Makka95 har avanmÃ¤lt sig till eventet Notis test</column>
+            <column name="Datum">2014-04-01 14:58:31</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">11</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">17</column>
+            <column name="Status">1</column>
+            <column name="Type">2</column>
+            <column name="Text">Du har precis skapat en trÃ¥d i forumet</column>
+            <column name="Datum">2014-04-02 12:09:42</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">12</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">17</column>
+            <column name="Status">1</column>
+            <column name="Type">2</column>
+            <column name="Text">Det har just skapats ett nytt inlÃ¤gg i trÃ¥den</column>
+            <column name="Datum">2014-04-02 12:20:23</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">13</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">23</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Makka95 har anmÃ¤lt sig till eventet tes</column>
+            <column name="Datum">2014-04-25 09:16:27</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">14</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">17</column>
+            <column name="Status">1</column>
+            <column name="Type">2</column>
+            <column name="Text">Det har just skapats ett nytt inlÃ¤gg i trÃ¥den</column>
+            <column name="Datum">2014-04-25 09:20:08</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">15</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">24</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skapats ett Event</column>
+            <column name="Datum">2014-04-28 14:22:14</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">16</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">25</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Det Har Just Skapats ett Event</column>
+            <column name="Datum">2014-05-20 15:54:27</column>
+        </table>
+        <table name="Notifikationer">
+            <column name="ID">17</column>
+            <column name="Anvandare_ID">11</column>
+            <column name="Not_ID">25</column>
+            <column name="Status">1</column>
+            <column name="Type">1</column>
+            <column name="Text">Makka95 har anmÃ¤lt sig till eventet </column>
+            <column name="Datum">2014-05-20 15:54:37</column>
+        </table>
+        <!-- Table Plats -->
+        <!-- Table Posts -->
+        <table name="Posts">
+            <column name="ID">4</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">9</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv inte hÃ¤r</column>
+            <column name="Titel">Okej?</column>
+            <column name="Time">2013-07-07 00:32:50</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">5</column>
+            <column name="Cat_id">2</column>
+            <column name="Thread_id">10</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">ok</column>
+            <column name="Time">2013-07-07 00:38:28</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">6</column>
+            <column name="Cat_id">4</column>
+            <column name="Thread_id">11</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r Inne</column>
+            <column name="Titel">tada</column>
+            <column name="Time">2013-07-07 00:38:47</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">13</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">8</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Hej</column>
+            <column name="Time">2013-09-27 11:40:41</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">14</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">12</column>
+            <column name="User_id">11</column>
+            <column name="Text">NOtis test Notis Test</column>
+            <column name="Titel">Notis Test</column>
+            <column name="Time">2014-04-02 10:07:19</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">15</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">13</column>
+            <column name="User_id">11</column>
+            <column name="Text">NOtis test Notis Test</column>
+            <column name="Titel">Notis Testet</column>
+            <column name="Time">2014-04-02 10:08:00</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">16</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">14</column>
+            <column name="User_id">11</column>
+            <column name="Text">NOtis test Notis Test</column>
+            <column name="Titel">Notis Testetet</column>
+            <column name="Time">2014-04-02 10:08:28</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">17</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">15</column>
+            <column name="User_id">11</column>
+            <column name="Text">NOtis test Notis Test</column>
+            <column name="Titel">Notis</column>
+            <column name="Time">2014-04-02 10:08:42</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">18</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">16</column>
+            <column name="User_id">11</column>
+            <column name="Text">NOtis test Notis Test</column>
+            <column name="Titel">Noti</column>
+            <column name="Time">2014-04-02 10:08:59</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">19</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">NOtis test Notis Test</column>
+            <column name="Titel">Notiser</column>
+            <column name="Time">2014-04-02 10:09:42</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">20</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:10:10</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">21</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:11:26</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">22</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:11:39</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">23</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:15:37</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">24</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:16:06</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">25</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:16:21</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">26</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:17:32</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">27</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:18:04</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">28</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:18:54</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">29</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">Skriv hÃ¤r</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-02 10:20:23</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">30</column>
+            <column name="Cat_id">1</column>
+            <column name="Thread_id">17</column>
+            <column name="User_id">11</column>
+            <column name="Text">testar</column>
+            <column name="Titel">RE: Notiser</column>
+            <column name="Time">2014-04-25 07:20:08</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">31</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">okej dÃ¥</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 15:18:36</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">32</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">okej dÃ¥ dÃ¥</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 15:55:16</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">33</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">okej dÃ¥ dÃ¥</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 15:55:56</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">34</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">okej dÃ¥ dÃ¥</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 15:56:41</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">35</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">testar igen dÃ¥</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 16:12:59</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">36</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">test test</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 16:16:00</column>
+        </table>
+        <table name="Posts">
+            <column name="ID">37</column>
+            <column name="Cat_id">0</column>
+            <column name="Thread_id">0</column>
+            <column name="User_id">11</column>
+            <column name="Text">testtest</column>
+            <column name="Titel">RE: </column>
+            <column name="Time">2014-06-11 16:25:23</column>
+        </table>
+        <!-- Table Status -->
+        <table name="Status">
+            <column name="ID_Anv">11</column>
+            <column name="ID_Evt">7</column>
+            <column name="Status">2</column>
+            <column name="Date">0000-00-00 00:00:00</column>
+        </table>
+        <table name="Status">
+            <column name="ID_Anv">11</column>
+            <column name="ID_Evt">12</column>
+            <column name="Status">1</column>
+            <column name="Date">0000-00-00 00:00:00</column>
+        </table>
+        <table name="Status">
+            <column name="ID_Anv">11</column>
+            <column name="ID_Evt">18</column>
+            <column name="Status">2</column>
+            <column name="Date">2014-03-26 15:52:30</column>
+        </table>
+        <table name="Status">
+            <column name="ID_Anv">11</column>
+            <column name="ID_Evt">20</column>
+            <column name="Status">0</column>
+            <column name="Date">2014-04-01 14:58:31</column>
+        </table>
+        <table name="Status">
+            <column name="ID_Anv">11</column>
+            <column name="ID_Evt">23</column>
+            <column name="Status">2</column>
+            <column name="Date">2014-04-25 09:16:27</column>
+        </table>
+        <table name="Status">
+            <column name="ID_Anv">11</column>
+            <column name="ID_Evt">25</column>
+            <column name="Status">2</column>
+            <column name="Date">2014-05-20 15:54:36</column>
+        </table>
+        <table name="Status">
+            <column name="ID_Anv">12</column>
+            <column name="ID_Evt">12</column>
+            <column name="Status">1</column>
+            <column name="Date">0000-00-00 00:00:00</column>
+        </table>
+        <!-- Table Threads -->
+        <table name="Threads">
+            <column name="ID">8</column>
+            <column name="Subject">Hej</column>
+            <column name="Time">2013-07-07 00:32:24</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">9</column>
+            <column name="Subject">Okej?</column>
+            <column name="Time">2013-07-07 00:32:50</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">10</column>
+            <column name="Subject">Ok</column>
+            <column name="Time">2013-07-07 00:38:28</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">2</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">11</column>
+            <column name="Subject">tada</column>
+            <column name="Time">2013-07-07 00:38:47</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">4</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">12</column>
+            <column name="Subject">Notis Test</column>
+            <column name="Time">2014-04-02 10:07:19</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">13</column>
+            <column name="Subject">Notis Testet</column>
+            <column name="Time">2014-04-02 10:08:00</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">14</column>
+            <column name="Subject">Notis Testetet</column>
+            <column name="Time">2014-04-02 10:08:28</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">15</column>
+            <column name="Subject">Notis</column>
+            <column name="Time">2014-04-02 10:08:42</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">16</column>
+            <column name="Subject">Noti</column>
+            <column name="Time">2014-04-02 10:08:59</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+        <table name="Threads">
+            <column name="ID">17</column>
+            <column name="Subject">Notiser</column>
+            <column name="Time">2014-04-02 10:09:42</column>
+            <column name="User_id">11</column>
+            <column name="Categorie_id">1</column>
+        </table>
+    </database>
+</pma_xml_export>

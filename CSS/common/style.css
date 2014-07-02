@@ -1,5 +1,10 @@
 /*http://codecanyon.net/theme_previews/5623489-talos-animated-dropdown-menu */
 
+body {
+
+color: #EFF5F4;
+}
+
 form {
 	color: white;
 }
@@ -146,6 +151,7 @@ a.top_link {
 	font-size: 14pt;
 	border: 1px solid black;
 	border-bottom: none;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 
 	display: blocK;
 	background: rgba(00,00,00,0.4);
@@ -275,7 +281,7 @@ div.notis_center {
 	position:fixed;
 
 	width: 40em;
-	left: -60em;
+	left: -40em;
 	top: 10em;
 	height: 40em;
 
@@ -284,10 +290,10 @@ div.notis_center {
 }
 
 div.button {
-	position: fixed;
-	top: 15em;
+	position: absolute;
+	top: 17em;
 	height: 6em;
-	left: 0em;
+	right: -2.5em;
 	width: 2.5em;
 	background-color: gray;
 	border-bottom-right-radius: 1em;
@@ -302,7 +308,7 @@ div.notis_center div.meddelanden {
 	width: 25em;
 	height: 31em;
 
-	background: rgba(00,00,00,1);
+	background: rgba(00,00,00,0);
 
 }
 
@@ -313,7 +319,7 @@ div.notis_center div.lista {
 	width: 12em;
 	height: 29em;
 
-	background: rgba(00,00,00,1);
+	background: rgba(00,00,00,0);
 	text-align: center;
 	color: white;
 	font-size: 14pt;
@@ -321,42 +327,40 @@ div.notis_center div.lista {
 
 div.notis_center button.notis {
 	position: absolute;
-	top: 0.25em;
-	left: 0.25em;
-	height: 2.5em;
-	width: 10.8em;
+	top: 0em;
+	left: 0em;
+	height: 3em;
+	width: 11em;
 	color:white;
 	border: none;
-	border-top-left-radius: 1em;
-	border-top-right-radius: 1em;
+
+
 	font-size: 14pt;
-	border: 2px solid gray;
-	border-bottom: none;
+
 
 	background: rgba(00,00,00,0.5);
-}
+background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */}
 
 div.notis_center button.active {
-	background: rgba(00,00,00,1);
-	border: 2px solid white;
-	border-bottom: none;
-}
+background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */}
 
 div.notis_center button#notis {
-	left: 206px;
+	left: 11em;
 
 }
 
 div.notis_center button.notis:hover {
 	color: orange;
 	background: rgba(00,00,00,0.7);
-	border: 2px solid white;
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */
 	cursor: pointer;
-	border-bottom: none;
+
 }
 
 div.notis_center button.active:hover {
 	background: rgba(00,00,00,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%); 
+
 }
 
 div.notis_center div.meddelanden div.meddelanden_display {
@@ -509,19 +513,53 @@ div.footer {
 
 }
 
+span.footer {
+	position: relative;
+	top: 1.4em;
+	
+	font-size: 9pt;
+
+	
+}
+
+a.footer {
+	position: relative;
+	left: 25%;
+	float: left;
+	top: 1.15em;
+	margin-left: 2em;
+	font-size: 11pt;
+	color: #EFF5F4;
+	text-decoration: none;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
+}
+a.footer:hover {
+	color: orange;
+}
 
 /* ----- Common ----- */
 
 span.content {
+
+
+	margin-bottom: 5px;
+	margin-left: 5px;
+	font-size: 10pt;
+	float:left;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* span.content {
 	position: relative;
 	top: 5px;
 	left: 5px;
 	right: 5px;
 	height: auto;
 	margin-bottom: 15px;
-	font-size: 14pt;
-
-}
+	font-size: 10pt;
+	float:right;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}*/
 
 @media only screen and (min--moz-device-pixel-ratio: 2) {
 

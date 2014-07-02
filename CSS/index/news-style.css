@@ -4,15 +4,15 @@ div.news {
 	position: relative;
 
 	top: 0px;
-	left: 25px;
-	width: 90%;
+	left: 2.5%;
+	width: 95%;
 	height: auto;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-top: 5px;
 	border-radius: 10px;
-	font-size: 12pt;
+	font-size: 10pt;
 	float:left;
-	color:black;
+
 
 
 }
@@ -23,44 +23,63 @@ div.news_subject {
 
 	width: 100%;
 	border-style: solid;
-	border-color: rgba(00,00,00,0.7);
-	border-width: 10px;
+	border-color: rgba(00,00,00,1);
+	border-width: 3px;
+	border-bottom: none;
 	border-bottom-width: 0px;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(00,00,00,0.6);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
 	box-sizing: border-box;
 
 }
 
 div.news_subject h1 {
 	line-height: 10px;
-	font-size: 30px;
-	margin-left: 50px;
+	font-size: 18pt;
+	margin-left: 0.4em;
+	color: orange;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 }
 
 div.news_text {
 
 	float: left;
-	left: 25px;
+
 
 	border-style: solid;
-	border-color: rgba(00,00,00,0.7);
-	border-width: 10px;
+	border-color: rgba(00,00,00,1);
+	border-width: 3px;
+	border-top: none;
 	width: 100%;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	background-color: rgba(255,255,255,0.8);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	background-color: rgba(00,00,00,0.6);;
 
 	padding-left:5px;
 	padding-right:15px;
 	padding-bottom:15px;
 	padding-top: 0px;
 	box-sizing: border-box;
+	padding-left: 10px;
+	
+	font-size: 10pt;
+
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+div.news_text img {
+	positioN: relative;
+	top: 5px;
+	left: 0px;
+	margin-right: 5px;
 
-
+	float:left;
+}
+div.news_text:after {
+	clear:both;
+}
 
 div.new_news {
 
@@ -76,13 +95,15 @@ div.new_news {
 
 span.news_date {
 
-	position: absolute;
-	top: 15px;
-	right: 15px;
+	position: relative;
+	float: left;
+	top: 0em;
+	left: 0.7em;
 
-	font-size: 18px;
+	font-size: 12pt;
 	line-height: 10px;
 	font-weight: bold;
+	color: orange
 }
 
 div.clear {
@@ -96,20 +117,22 @@ a.news {
 
 a.news:hover{
 	color: orange;
+	text-decoration: underline;
 }
 
 div.contain {
-	width: 60%;
+	width: 70%;
 }
 
-div.forum_news {
+div.forum_news, div.ads {
 	position: relative;
 	float:left;
-	width: 35%;
-	height: 500px;
+	width: 27%;
+	height: 17em;
 
-	left: 30px;
-	top: -30px;
+	left: 1.5em;
+	top: -0.4em;
+	margin-top: 1em;
 
 	background: rgba(00,00,00,0.6);
 }
@@ -118,20 +141,32 @@ ul.forum_news {
 	position: relative;
 	top: 30px;
 	list-style: none;
+	padding-left: 2em;
+}
+ul.forum_news li {
+	background: url('../../Bilder/icons.png') no-repeat scroll 0px -1337px transparent;
 }
 ul.forum_news li a {
+	position: relative;
 	text-decoration: none;
-	color: orange;
+	color: white;
+	left: 1em;
+	background-repeat: no-repeat;
+	
 }
+
 ul.forum_news li a:hover {
-	color:white;
-	text-decoration: underline;
+	color:orange;
 }
 ul.forum_news li a.responses {
-	position: relative;
-	left: 10px;
-	background: url("Bilder/respons_icon.png");
-	background-repeat: no-repeat;
+	background: url('../../Bilder/icons.png') no-repeat scroll 0px -1085px transparent;
+	padding-left: 1em;
+	left: 2em;
+}
+ul.forum_news li a.checked {
+	background: url('../../Bilder/check_mark_icon.png') no-repeat scroll 0px 0px transparent;
+	padding-left: 1.25em;
+	left: 1.6em;
 }
 
 span.nyhet_forum {
@@ -146,6 +181,7 @@ span.nyhet_forum {
 	right: 10px;
 	top: 5px;
 	height: 30px;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 }
 /* News sidan */
 
