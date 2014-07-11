@@ -11,12 +11,7 @@
 	<link rel="StyleSheet" href="CSS/common/style.css" type="text/css">
 	<link rel="StyleSheet" href="CSS/common/menu-style.css" type="text/css">
 	<link rel="StyleSheet" href="CSS/index/news-style.css" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=BenchNine:700&subset=latin-ext' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-
-	<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
-	<script src="JS/jquery-cookie-master/jquery.cookie.js"></script>
+	<?php head_setup () ;?>
 	<script src="JS/index/notis.js"></script>
 
 
@@ -24,29 +19,10 @@
 
 
 <body>
-	<div class="background">
-	</div>
 
 	<?php create_notis_center(); ?>
-
-	<div class="loggain">
-		<div class="loginform">
-			<span class="login_text">Logga in</span><br>
-			<form action="login.php" method="post" class="login">
-
-				<input type="text" name="user" placeholder="Användarnamn"><br><br>
-
-				<input type="password" name="pass" placeholder="Lösenord"><br>
-				<input type="submit" value="Login">
-
-			</form><br><br>
-			<hr class="login"><br>
-			<a href="#" class="forgot_pass">Glömt Lösenordet?</a><br>
-			<a href="#" class="forgot_user">Glömt Användarnamn?</a><br>
-			<a href="#" class="reg">Registrera dig här</a>
-		</div>
-		<button class="fadeout" onclick="fade_login()">X</button>
-	</div>
+	<?php create_login_screen(); ?>
+	
 	<div class="main">
 		<div class="top">
 			<a class="tracker" href="index.php">Hem</a><span class="tracker">></span>
@@ -69,7 +45,7 @@
 			</span>
 			<ul class="forum_news">
 				<li>
-					<a href="#" >Detta är ett test</a>
+					<a href="#" >mmmmmmmmmmmmmmmmmmmmmmmmm</a>
 					<a href="#" class="responses">30</a>
 				</li>
 				<li>
@@ -110,7 +86,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="forum_news">
+		<div class="aktiviteter_news">
 			<span class="nyhet_forum">
 				Senaste aktiviteterna
 			</span>
@@ -160,18 +136,8 @@
 		<div class="ads">
 			<img src="http://placehold.it/308x272/ffffff/000000&text=Ads goes here!" alt="placeholder">
 		</div>
-
-		<div class="footer">
-			
-			<a href="#" class="footer">Hem</a>
-			<a href="#" class="footer">Site Map</a>
-			<a href="#" class="footer">Information</a>
-			<a href="#" class="footer">Kontakta Träningskollektivet</a>
-			<a href="#" class="footer">Rapportera Fel</a><br>
-			<center><span class="footer">Copyright © 2014 Träningskollektivet. Allt innehåll tillhör Träningskollektivet. <br>Citering är tillåten om källan anges.</span></center>
-		</div>
-	</div>
-	
-
+		
+		<?php create_footer(); ?>
+		
 </body>
 </html>

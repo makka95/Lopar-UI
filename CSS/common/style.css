@@ -3,6 +3,14 @@
 /*csscomb
 prefixr*/
 
+html {
+	background: url("../../Bilder/running.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 body {
 
 color: #EFF5F4;
@@ -12,19 +20,9 @@ form {
 	color: white;
 }
 
-div.background
-{
-	position: fixed;
+div.background img {
 
 	width: 100%;
-	height: 100%;
-	left: 0px;
-	top: 0px;
-
-	background-image: url("../../Bilder/running.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-
 }
 
 div.main
@@ -56,9 +54,9 @@ div.login_fog {
 div.contain {
 	position: relative;
 
-	top: 10px;
-	left: 10px;
-	width: 1500px;
+	top: 1%;
+	left: 1%;
+	width: 65%;
 
 
 	margin-bottom: 40px;
@@ -139,19 +137,19 @@ img.profilbild {
 a.top_link {
 	position: relative;
 
-	top: 10px;
-	left: 10px;
-	height: 35px;
-	width: 100px;
+	left: 1%;
+	width: 10%;
 	float:left;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	margin-right: 1px;
+	margin-top: 1%;
+
 	text-align: center;
 	color: white;
 	text-decoration: none;
 	line-height: 30px;
-	font-size: 14pt;
+	font-size: 12pt;
 	border: 1px solid black;
 	border-bottom: none;
 	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
@@ -283,46 +281,57 @@ p.date {
 div.notis_center {
 	position:fixed;
 
-	width: 40em;
-	left: -40em;
-	top: 10em;
-	height: 40em;
+	width: 30%;
+	left: -31%;
+	top: 20%;
+	height: 60%;
 
-	background: rgba(00,00,00,0.7);
+	background-color: gray;
 	z-index: 107;
+	border: 2px solid orange;
+	border-left: none;
 }
 
 div.button {
 	position: absolute;
-	top: 17em;
-	height: 6em;
-	right: -2.5em;
-	width: 2.5em;
+	top: 42.5%;
+	height: 15%;
+	right: -8.75%;
+	width: 6%;
 	background-color: gray;
 	border-bottom-right-radius: 1em;
 	border-top-right-radius: 1em;
+	border: 2px solid orange;
+
 	z-index: 108;
 }
 
 div.notis_center div.meddelanden {
 	position: absolute;
-	top: 3.225em;
-	left: 0.25em;
-	width: 25em;
-	height: 31em;
+	top: 1%;
+	left:1%;
+	width: 65%;
+	bottom: 19%;
 
 	background: rgba(00,00,00,0);
 
 }
+div.notis_contain {
+	position: absolute;
+	top: 9%;
+	left: 1%;
+	right: 1%;
+	height: 90%;
+	background: rgba(0, 0, 0, 0.6);
+}
 
 div.notis_center div.lista {
 	position: absolute;
-	top: 0.25em;
-	right: 0.25em;
-	width: 12em;
-	height: 29em;
+	top:1%;
+	right: 1%;
+	width: 32%;
+	bottom: 19%;
 
-	background: rgba(00,00,00,0);
 	text-align: center;
 	color: white;
 	font-size: 14pt;
@@ -330,66 +339,73 @@ div.notis_center div.lista {
 
 div.notis_center button.notis {
 	position: absolute;
-	top: 0em;
-	left: 0em;
-	height: 3em;
-	width: 11em;
-	color:white;
-	border: none;
 
+	left: 1%;
+	height: 8%;
+	width: 30%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 
+	margin-top: 1%;
+
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	line-height: 30px;
 	font-size: 14pt;
+	border: 1px solid black;
+	border-bottom: none;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 
-
-	background: rgba(00,00,00,0.5);
-background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */}
+	display: blocK;
+	background: rgba(00,00,00,0.4);
+}
 
 div.notis_center button.active {
-background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */}
+	background: rgba(00,00,00,0.6);
+}
 
 div.notis_center button#notis {
-	left: 11em;
+	left: 31.25%;
 
 }
 
 div.notis_center button.notis:hover {
-	color: orange;
-	background: rgba(00,00,00,0.7);
-	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: rgba(00,00,00,0.5);
+	color:orange;
 	cursor: pointer;
-
 }
 
 div.notis_center button.active:hover {
-	background: rgba(00,00,00,1);
-	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%); 
-
+	background: rgba(00,00,00,0.6);
+	color:orange;
+	cursor: pointer;
 }
 
 div.notis_center div.meddelanden div.meddelanden_display {
 	position: absolute;
-	top: 5px;
-	left: 5px;
-	right: 5px;
-	bottom: 5px;
+	top: 1%;
+	left: 1%;
+	right: 1%;
+	bottom: 1%;
 
-	border: 2px solid white;
 	border-radius: 10px;
-	background-color:gray;
+	background: rgba(00,00,00,0.6);
+	border: 3px solid black;
 	overflow-x: none;
 	overflow-y: scroll;
 }
 
 div.notis_center div.lista div.lista_display {
 	position: absolute;
-	top: 50px;
-	left: 5px;
-	right: 5px;
-	bottom: 5px;
+	top: 1%;
+	left: 1%;
+	right: 1%;
+	bottom: 1%;
 
-	border: 2px solid white;
 	border-radius: 10px;
-	background-color:gray;
+	background: rgba(00,00,00,0.6);
+	border: 3px solid black;
 }
 
 div.notis_center div.lista div.lista_display div.user, div.notis_center div.lista div.lista_display div.notis_lista {
@@ -425,12 +441,10 @@ div.meddelanden span.meddelande_info {
 
 div.skriv {
 	position: absolute;
-	right: 0.25em;
-	left: 0.25em;
-	bottom: 0.25em;
-	height: 5.5em;
-
-	background: rgba(00,00,00,0.7);
+	right: 1%;
+	left: 1%;
+	bottom: 1%;
+	height: 17%;
 }
 
 form.msg {
@@ -448,21 +462,29 @@ form.msg textarea.msg {
 	bottom: 0px;
 	width: 100%;
 	resize: none;
-	background-color: gray;
+	background: rgba(00,00,00,0.6);
+	border: 3px solid black;
 	border-radius: 10px;
+	color: white;
 }
 
 form.msg input.skicka {
 	position: absolute;
-	right: 2px;
-	bottom: 2px;
-	border: black solid 2px;
+	right: 0px;
+	bottom: 0px;
+	border-radius: 0.5em;
+	
+	font-weight: bold;
+	font-size: 9pt;
+	
+	background-size: 100% auto;
+	background-image: linear-gradient(#FFF, #ECECEC 50%, #DDD 50%, #DADADA);
 }
 
 form.msg input.skicka:hover {
-	background-color: gray;
-	color: orange;
 	cursor:pointer;
+	color: orange;
+	border: 2px solid orange;
 }
 
 form.msg input.skicka:active {
@@ -520,7 +542,7 @@ span.footer {
 	position: relative;
 	top: 1.4em;
 	
-	font-size: 9pt;
+	font-size: 8pt;
 
 	
 }
