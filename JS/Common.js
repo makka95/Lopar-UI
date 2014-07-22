@@ -350,10 +350,10 @@ $(document).ready(function () {
 		if ($("div.notis_center").css("left") == "0px") {
 
 			$("div.notis_center").animate({
-				left: "-31%"
+				left: "-30%"
 			}, 500);
 			$("div.button").animate({
-					right: "-8.75%"
+					right: "-40px"
 			}, 200);
 		} else {
 			get_friends();
@@ -362,7 +362,7 @@ $(document).ready(function () {
 				left: "0"
 			}, 500);
 			$("div.button").animate({
-					right: "-6.75%"
+					right: "-44px"
 			}, 200);
 		}
 
@@ -446,4 +446,7 @@ $(document).ready(function () {
 	});
 
 
+	if (typeof load_site == 'function') {
+		load_site();
+	}
 });

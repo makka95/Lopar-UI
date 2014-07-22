@@ -14,7 +14,7 @@ function get_news () {
 		$new_query = "SELECT Subject,Text,Datum FROM News WHERE ID=" . $id;
 		$new_query_run = $connect->query($new_query);
 		$new_query_result = mysqli_fetch_assoc($new_query_run);
-		print '<a href="news.php?id=' . $id . '" class="news"><h1>' .  mb_convert_encoding($new_query_result['Subject'], "UTF-8") . '</h1></a><span class="news_date">' .  date("Y-m-d", time($new_query_result['Datum'])) . '</span></div>';
+		print '<a href="news.php?id=' . $id . '" class="news"><h1>' .  mb_convert_encoding($new_query_result['Subject'], "UTF-8") . '</h1></a><span class="news_date">' .  date("Y-m-d H:i", time($new_query_result['Datum'])) . '</span></div>';
 		print '<div class="news_text"><div class="news_img_contain"><img src="Bilder/news_image.jpg" alt="Springer"></div>' .  mb_convert_encoding($new_query_result['Text'],"UTF-8") . '</div>';
 		print '</div>';
 		$count++;
@@ -171,9 +171,11 @@ function get_arkiv_news() {
 			print '<ul class="months" id="' . $year . '">';
 			foreach ($months as $month => $subjects) {
 				print '<li>' . get_month($month) . '</li>';
+				print '<ul class="links">';
 				foreach ($subjects as $id => $subject) {
-					print '<a href="news.php?id=' . $id . '" class="' . get_month($month) . '" id="' . $year . '">' . mb_convert_encoding($subject, "UTF-8")  . '</a><br>';
+					print '<li><a href="news.php?id=' . $id . '" class="' . get_month($month) . '" id="' . $year . '">' . mb_convert_encoding($subject, "UTF-8")  . '</a></li>';
 				}
+				print '</ul>';
 			}
 			print '</ul>';
 		}

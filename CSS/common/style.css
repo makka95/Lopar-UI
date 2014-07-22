@@ -12,18 +12,14 @@ html {
 }
 
 body {
-
-color: #EFF5F4;
+	color: #EFF5F4;
+	font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 }
 
 form {
 	color: white;
 }
 
-div.background img {
-
-	width: 100%;
-}
 
 div.main
 {
@@ -181,8 +177,6 @@ div.sok form {
 	color:white;
 	left: 20px;
 	top: 20px;
-
-
 }
 
 div.sok_calendar {
@@ -191,19 +185,21 @@ div.sok_calendar {
 	top: 10px;
 	left: 10px;
 	width: 200px;
-	height: 215px;
+	height: auto;
 	display:none;
 
 	z-index: 96;
+	border: 1px solid orange;
 
-	background-color:white;
+	background-color:black;
+	background: rgba(00,00,00,0.6);
 }
 
 table.sok_table{
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 0px;
+	margin-bottom: 40px;
 	top: 30px;
 
 }
@@ -219,6 +215,7 @@ table.sok_table td#dag:hover{
 
 table.sok_table td.last {
 	background-color:lightgray;
+	background: rgba(80,80,80,0.6);
 }
 
 table.sok_table td {
@@ -228,6 +225,8 @@ table.sok_table td {
 	height: 20px;
 
 	text-align:center;
+	background-color: black;
+	background: rgba(00,00,00,0.4);
 }
 
 table.sok_table td:hover {
@@ -244,7 +243,7 @@ button.sok_calendar {
 	height: 35px;
 	border: none;
 
-	background: url("Bilder/small-calendar-left.png") no-repeat;
+	background: url("../../Bilder/small-calendar-left.png") no-repeat;
 
 
 }
@@ -254,7 +253,7 @@ button#left {
 }
 
 button#right {
-	background: url("Bilder/small-calendar-right.png") no-repeat;
+	background: url("../../Bilder/small-calendar-right.png") no-repeat;
 	right: 3px;
 }
 
@@ -282,7 +281,7 @@ div.notis_center {
 	position:fixed;
 
 	width: 30%;
-	left: -31%;
+	left: -30%;
 	top: 20%;
 	height: 60%;
 
@@ -294,16 +293,33 @@ div.notis_center {
 
 div.button {
 	position: absolute;
-	top: 42.5%;
-	height: 15%;
-	right: -8.75%;
-	width: 6%;
+	top: 40%;
+	height:  100px;
+	right: -44px;
+	width: 40px;
 	background-color: gray;
 	border-bottom-right-radius: 1em;
 	border-top-right-radius: 1em;
 	border: 2px solid orange;
-
+	
 	z-index: 108;
+}
+div.button div.arrow {
+	position: absolute;
+	display:table-cell;
+	font-size: 24pt;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	width: 100%;
+	top: 50%;
+	margin-top: -0.5em;
+	vertical-align: middle;
+	line-height: 100%;
+
+	height: 1em;
+	-moz-transform:scale(1,3.5);
+	
 }
 
 div.notis_center div.meddelanden {
@@ -342,11 +358,10 @@ div.notis_center button.notis {
 
 	left: 1%;
 	height: 8%;
-	width: 30%;
+	top: 1%;
+	width: 48.875%;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-
-	margin-top: 1%;
 
 	text-align: center;
 	color: white;
@@ -366,7 +381,7 @@ div.notis_center button.active {
 }
 
 div.notis_center button#notis {
-	left: 31.25%;
+	left:50.125%;
 
 }
 
@@ -599,4 +614,18 @@ span.content {
 		font-size: 14pt;
 	}
 
+}
+
+@media only screen and (max-width: 1300px) {
+	div.notis_center button.notis {
+		font-size: 12pt;
+	}
+	div.notis_center div.button {
+		width: 30px;
+		right: -34px;
+		height: 60px;
+	}
+	div.button div.arrow {
+		font-size: 18pt;
+	}
 }

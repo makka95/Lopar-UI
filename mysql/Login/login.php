@@ -1,0 +1,1 @@
+<?php	include "../mysql_database.php";	login();		$id = $_SESSION['Loggedin'];	setcookie("login", $id, (time()+60*60*24*30), '/', 'localhost');	header('Location: ' . $_SERVER['HTTP_REFERER']);?>
