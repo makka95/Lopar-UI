@@ -64,7 +64,7 @@ function get_meddelanden(clicked) {
 			} else {
 				id = $(clicked).attr("id");
 			}
-			xmlhttp.open("GET", "get_meddelanden.php?id_1="+id+"&id_2="+$.cookie("login"), true);
+			xmlhttp.open("GET", "mysql/get/get_meddelanden.php?id_1="+id+"&id_2="+$.cookie("login"), true);
 			xmlhttp.onreadystatechange = handleresponse_meddelanden;
 			xmlhttp.send(null);
 		} catch(e) {
@@ -79,7 +79,7 @@ function get_friends() {
 	if (xmlhttp.readyState == 0 || xmlhttp.readyState == 4) {
 		try {
 			var id = $.cookie("login");
-			xmlhttp.open("GET", "get_friends.php?id="+id, true);
+			xmlhttp.open("GET", "mysql/get/get_friends.php?id="+id, true);
 			xmlhttp.onreadystatechange = handleresponse_friends;
 			xmlhttp.send(null);
 		} catch(e) {
@@ -159,7 +159,7 @@ function get_notis (val) {
 				val = "alla";
 			}
 			var id = $.cookie("login");
-			xmlhttp.open("GET", "get_notis.php?id=" + id + "&val=" + val, true);
+			xmlhttp.open("GET", "mysql/get/get_notis.php?id=" + id + "&val=" + val, true);
 			xmlhttp.onreadystatechange = handleresponse_notis;
 			xmlhttp.send(null);
 		} catch(e) {
@@ -340,6 +340,8 @@ function notis_lista () {
 		}
 
 	});
+	
+	get_notis("alla");
 }
 
 $(document).ready(function () {

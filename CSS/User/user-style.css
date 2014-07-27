@@ -1,0 +1,172 @@
+
+/* ----- Användar Data -----*/
+span.user-nick {
+
+	color:orange;
+	font-size: 14pt;
+	font-weight: bold;
+
+	position: relative;
+	float: left;
+	margin-top: 2%;
+	left: 2.5%;
+	width: 97.5%;
+}
+
+div.user-bild {
+	float: left;
+	position: relative;
+	margin-top: 2.5%;
+	padding-left: 2.5%;
+	width: 47.5%;
+	margin-bottom: 2.5%;
+}
+div.user-bild div.bild {
+	position: relative;
+	left: 0%;
+	margin-top: 5%;
+}
+ form.user-form {
+	float: left;
+	position: relative;
+	margin-top: 0.25%;
+	width: 47.5%;
+	padding-left: 2.5%;
+	margin-bottom: 2.5%;
+ }
+ form.user-form input, form.user-form select {
+	margin-left: 10px;
+}
+form.user-form input[type=text] {
+	width: 150px;
+}
+form.user-form select[name=lan] {
+	width: 125px;
+	text-align: center;
+}
+ div.user-admin {
+	float: left;
+	position: relative;
+	left: 2.5%;
+	width: 97.5%;
+	margin-bottom: 2.5%;
+ }
+ div.user-admin a {
+	color: orange;
+	text-decoration: none;
+ }
+ div.user-admin a:hover {
+	color: white;
+	text-decoration: underline;
+ }
+ 
+ span.user-info {
+	color: orange;
+	font-size: 12pt;
+	font-weight: bold;
+ }
+ 
+ 
+ /* ----- Vänner ----- */
+ 
+ div.friends{
+	position: relative;
+	left: 2%;
+	top: 5%;
+	width: 47%;
+	height: auto;
+	padding-top: 2.5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	
+	background: rgba(00,00,00, 0.4);
+ }
+ 
+ span.friends {
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	left: 0%;
+	height: 2.5%;
+	color: orange;
+	font-weight: bold;
+	font-size: 16pt;
+	text-align: center;
+ }
+ div.friends_list {
+	position: relative;
+	width: 95%;
+	margin-top:20px;
+	left: 2.5%;
+	height: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 500px;
+ }
+
+ div.friend {
+	position: relative;
+	width: 100%;
+	top: 0%;
+	float:left;
+	left: 0%;
+	margin-bottom: 0.5%;
+	border: 3px solid black;
+	border-radius: 10px;
+	min-height: 40px;
+	background: rgba(00,00,00, 0.4);
+	overflow-y:hidden;
+	overflow-x:hidden;
+	
+	box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+	
+ }
+ div.friend:hover {
+	background: rgba(88,88,88, 0.3);
+ }
+div.friend:last-of-type {
+	clear:both;
+}
+ div.friend img {
+	position: relative;
+	float:left;
+	width: 15%;
+	min-width: 40px;
+ }
+ a.friend_name {
+	position: absolute;
+	left: 0%;
+	width: 100%;
+	top: 0%;
+	float:left;
+	color: orange;
+	font-weight: bold;
+	font-size: 14pt;
+	line-height: 250%;
+	text-decoration: none;
+	text-align:center;
+ }
+ a.friend_name:hover {
+	color:white;
+ }
+ button.remove_friend {
+	position: absolute;
+	right: 5%;
+	margin-top: 3%;
+	background-color: red;
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	border: none;
+	font-weight: bold;
+	font-size: 11pt;
+	color:black;
+	text-align: center;
+ }
+ button.remove_friend:hover {
+	cursor: pointer;
+	border: 2px solid white;
+	color: white;
+ }

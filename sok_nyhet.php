@@ -62,7 +62,7 @@
 			?>
 		</div>
 		
-		<div class="ads">
+		<div class="ads no-margin-top">
 			<img src="http://placehold.it/308x272/ffffff/000000&text=Ads goes here!" alt="placeholder">
 		</div>
 		

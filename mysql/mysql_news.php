@@ -143,11 +143,11 @@ function display_news() {
 	$query_run = $connect->query($query);
 	$query_result = mysqli_fetch_assoc($query_run);
 	
-	print '<span class="news_subject">' . $query_result['Subject'] . '</span>';
-	print '<span class="news_datum">' . $query_result['Datum'] . '</span>';
-	print '<div class="news_body">';
-	print $query_result['Text'];
-	print '</div>';
+	print '<div class="news"><div class="news_subject"><h1>' . mb_convert_encoding($query_result['Subject'], "UTF-8") . '</h1>';
+	print '<span class="news_date">' .  date("Y-m-d H:i", $new_query_result['Datum']) . '</span></div>';
+	print '<div class="news_body"><div class="news_img_contain"><img src="Bilder/news_image.jpg" alt="Springer"></div>';
+	print mb_convert_encoding($query_result['Text'], "UTF-8");
+	print '</div></div>';
 	
 	closeconnection($connect);
 }
