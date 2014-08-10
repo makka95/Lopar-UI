@@ -26,69 +26,81 @@
 		
 		<a href="anvandare.php" class="top_link">Användar Data</a>
 		<a href="anvandare_friends.php" class="top_link" id="active">Vänner</a>
-		<a href="#" class="top_link">Inställningar</a>
+		<a href="anvandare_settings.php" class="top_link">Inställningar</a>
 		<div class="contain">
 			
-				<div class="friends">
-					<span class="friends">Vänner</span>
-					<div class="friends_list">
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
-						<div class="friend">
-							<img alt="Profilbild" src="User-Prof/11-prof.jpg">
-							<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
-							<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
-						</div>
+			<div class="friends">
+			
+				<span class="friends">Vänner</span>
+				<div class="friends_list">
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
+					</div>
+					<div class="friend">
+						<img alt="Profilbild" src="User-Prof/11-prof.jpg">
+						<a class="friend_name" href="anvandare.php?nick=makka95">Makka95</a>
+						<button class="remove_friend" onclick="alert('Vill du verkligen ta bort din vän?');">X</button>
 					</div>
 				</div>
+			</div>
+			
+			<div class="sok_friends">
+				<span class="friends">Sök Vänner</span>
+				<form class="sok_friends" action="" method="POST">
+					<input type="text" class="form-text-input" name="namn" placeholder="Sök Efter Vänner">
+					<input type="submit" class="form-submit-button" value="Sök">
+				</form>
+			</div>
+			<div class="friends_result">
+				<span class="friends">Inga Användare Hittade</span>
+			</div>
 		</div>
 		<?php create_footer(); ?>
 	</div>

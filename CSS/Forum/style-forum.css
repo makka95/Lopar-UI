@@ -1,0 +1,234 @@
+
+/* ----- Forum ------ */
+div.contain {
+	margin-top: 1%;
+}
+
+div.forum-container {
+	position: relative;
+	width: 100%;
+	height: auto;
+	left: 2%;
+	margin-top: 2%;
+}
+
+div.forumheader {
+
+	position: relative;
+
+	left: 0px;
+	width: 100%;
+	top: 0px;
+	height: 30px;
+
+	background-color: orange;
+	color: black;
+
+}
+
+span.forumheadertext {
+
+	font-size: 20px;
+	color: black;
+	margin-left: 60px;
+	font-weight: bold;
+
+}
+
+span#two {
+	margin-left: 450px;
+}
+
+span#three {
+	margin-left: 240px;
+}
+
+div.categorie {
+
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 50px;
+
+	line-height: 35px;
+
+	background: rgba(00,00,00,0.5);
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+
+}
+
+div#group {
+
+	background-color: gray;
+	background: rgba(88,88,88,0.5);
+
+	color:white;
+
+	font-size: 25px;
+
+	font-weight: bold;
+	width: 100%;
+	line-height: 40px;
+}
+
+div.post {
+
+	position: relative;
+	top: 40px;
+	left: 20px;
+	width: 1338px;
+	height: 200px;
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	padding-top: 50px;
+
+}
+
+div#firstpost {
+	top: 20px;
+
+}
+
+div.postheader {
+	position: absolute;
+
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	height: 50px;
+
+	background-color: orange;
+
+}
+
+div.categorie a {
+	color:white;
+	text-decoration: none;
+	font-size: 14pt;
+}
+
+div.categorie a:hover {
+	color:orange;
+}
+
+button.skapa {
+	position: relative;
+
+	top: 70px;
+	left: 1200px;
+	width: 100px;
+	height: 40px;
+}
+
+button#post {
+	top: 50px;
+}
+
+a.edit {
+	position: relative;
+
+	right: -1200px;
+	font-size: 15px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	padding-right: 10px;
+	color: black;
+}
+
+a.edit:hover {
+
+	text-decoration: underline;
+	color: blue;
+}
+
+span.cat_span{
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 20px;
+	color:white;
+}
+
+span#lastpost {
+	position: absolute;
+	top: 10px;
+	left: 500px;
+
+}
+
+span#threads {
+	position: absolute;
+	top: 10px;
+	left: 940px;
+}
+
+span#posts {
+	position: absolute;
+	top: 10px;
+	right: 35px;
+}
+
+a.thr_span {
+	position:absolute;
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+a#thread {
+	position: absolute;
+	top: 10px;
+	left: 500px;
+}
+
+a#lastpost.thr_span  {
+	right: 60px;
+}
+
+span.thr_span {
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 20px;
+	position: absolute;
+	top: 10px;
+	right: 425px;
+}
+
+a#thr_user {
+    position: absolute;
+    top: 10px;
+    left: 540px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+a.thr_subj {
+    position: absolute;
+    left: 55px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+a.creator {
+	position: relative;
+
+	left: 0px;
+	font-size: 15px;
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	padding-right: 10px;
+	color: black;
+}
+a.creator:hover {
+	text-decoration: underline;
+	color: blue;
+}

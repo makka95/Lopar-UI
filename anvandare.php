@@ -26,7 +26,7 @@
 		
 		<a href="anvandare.php" class="top_link" id="active">Användar Data</a>
 		<a href="anvandare_friends.php" class="top_link">Vänner</a>
-		<a href="#" class="top_link">Inställningar</a>
+		<a href="anvandare_settings.php" class="top_link">Inställningar</a>
 		<div class="contain">
 				<?php
 					get_profil();
