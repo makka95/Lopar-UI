@@ -5,7 +5,7 @@ include "../mysql/mysql.php";
 function display_categories () {
 
 	$connect = connecttodatabase();
-	echo '<div class="categorie" id="group">Löpning</div>';
+	echo '<div class="categorie" id="group"><span class="main-cat">Löpning</span></div>';
 
 	$query = "SELECT * FROM Categories WHERE Categorie_group=0";
 	$query_run = $connect->query($query);
@@ -23,16 +23,16 @@ function display_categories () {
 		$new_query_run = $connect->query($new_query);
 		$new_query_result = mysqli_fetch_assoc($new_query_run);
 	
-		echo '<div class="categorie"><a href="category.php?id=' . $query_result['ID'] .'">';
+		echo '<div class="categorie"><a id="cat" href="category.php?id=' . $query_result['ID'] .'">';
 		echo $query_result['Namn']; 
 		echo '</a>';
-		echo '<span class="cat_span" id="lastpost"><a href="posts.php?thr=' . $new_query_result['Thread_id'] . '">' . $new_query_result['Titel'] . '</a></span>';
+		echo '<a id="lastpost" href="posts.php?thr=' . $new_query_result['Thread_id'] . '">' . $new_query_result['Titel'] . '</a>';
 		echo '<span class="cat_span" id="threads">' . $num_rows_threads . '</span>';
 		echo '<span class="cat_span" id="posts">' . $num_rows_posts . '</span>';
 		echo '</div>';
 
 	}
-	echo '<div class="categorie" id="group">Kost</div>';
+	echo '<div class="categorie" id="group"><span class="main-cat">Kost</span></div>';
 	
 	$query = "SELECT * FROM Categories WHERE Categorie_group=1";
 	$query_run = $connect->query($query);
@@ -50,16 +50,16 @@ function display_categories () {
 		$new_query_run = $connect->query($new_query);
 		$new_query_result = mysqli_fetch_assoc($new_query_run);
 	
-		echo '<div class="categorie"><a href="category.php?id=' . $query_result['ID'] .'">';
+		echo '<div class="categorie"><a id="cat" href="category.php?id=' . $query_result['ID'] .'">';
 		echo $query_result['Namn']; 
 		echo '</a>';
-		echo '<span class="cat_span" id="lastpost"><a href="posts.php?thr=' . $new_query_result['Thread_id'] . '">' . $new_query_result['Titel'] . '</a></span>';
+		echo '<a id="lastpost" href="posts.php?thr=' . $new_query_result['Thread_id'] . '">' . $new_query_result['Titel'] . '</a>';
 		echo '<span class="cat_span" id="threads">' . $num_rows_threads . '</span>';
 		echo '<span class="cat_span" id="posts">' . $num_rows_posts . '</span>';
 		echo '</div>';
 
 	}
-	echo '<div class="categorie" id="group">Cyckling</div>';
+	echo '<div class="categorie" id="group"><span class="main-cat">Cyckling</span></div>';
 	
 	$query = "SELECT * FROM Categories WHERE Categorie_group=2";
 	$query_run = $connect->query($query);
@@ -77,10 +77,10 @@ function display_categories () {
 		$new_query_run = $connect->query($new_query);
 		$new_query_result = mysqli_fetch_assoc($new_query_run);
 	
-		echo '<div class="categorie"><a href="category.php?id=' . $query_result['ID'] .'">';
+		echo '<div class="categorie"><a id="cat" href="category.php?id=' . $query_result['ID'] .'">';
 		echo $query_result['Namn']; 
 		echo '</a>';
-		echo '<span class="cat_span" id="lastpost"><a href="posts.php?thr=' . $new_query_result['Thread_id'] . '">' . $new_query_result['Titel'] . '</a></span>';
+		echo '<a id="lastpost" href="posts.php?thr=' . $new_query_result['Thread_id'] . '">' . $new_query_result['Titel'] . '</a>';
 		echo '<span class="cat_span" id="threads">' . $num_rows_threads . '</span>';
 		echo '<span class="cat_span" id="posts">' . $num_rows_posts . '</span>';
 		echo '</div>';
@@ -94,6 +94,8 @@ function display_threads() {
 	
 	$connect = connecttodatabase();
 	$cat_id = $_GET['id'];
+	
+	
 	
 	$query = "SELECT Subject, ID, User_id FROM Threads WHERE Categorie_id='" . $cat_id . "' ORDER BY Time ASC";
 	$query_run = $connect->query($query);
@@ -114,10 +116,10 @@ function display_threads() {
 			$new_query_run = $connect->query($new_query);
 			$new_query_result = mysqli_fetch_assoc($new_query_run);
 			
-			echo '<div class="categorie"><a class="thr_subj" href="posts.php?thr=' . $query_result['ID'] . '">' . $query_result['Subject'] . '</a>';
-			echo '<a class="thr_span" id="thr_user" href="#">' . $nickname['Nickname'] . '</a>';
-			echo '<span class="thr_span">' . $query_rows . '</span>';
-			echo '<a class="thr_span" id="lastpost" href="posts.php?thr=' . $query_result['ID'] . '">' . $new_query_result['Titel'] . '</a>';
+			echo '<div class="categorie"><a id="cat" href="posts.php?thr=' . $query_result['ID'] . '">' . $query_result['Subject'] . '</a>';
+			echo '<a id="lastpost" href="#">' . $nickname['Nickname'] . '</a>';
+			echo '<span id="svar" class="thr_span">' . $query_rows . '</span>';
+			echo '<a id="senaste" class="thr_span" href="posts.php?thr=' . $query_result['ID'] . '">' . $new_query_result['Titel'] . '</a>';
 			
 			echo '</div>';
 		}
@@ -151,21 +153,11 @@ function display_post() {
 	
 	if ($query_run) {
 		while ($query_result = mysqli_fetch_assoc($query_run)) {
-			if ($first) {
-				if ($query_result['User'] == $_COOKIE['login'] || $user_lvl == "A") {
-					echo '<div class="post" id="firstpost"><div class="postheader"><a class="creator" href="anvandare.php?nick=' . $query_result['Nick'] . '">' . $query_result['Nick'] . '</a><a class="edit" href="edit_post.php?id=' . $query_result['ID'] . '">Ändra</a><a class="edit" href="delete_post.php?id=' . $query_result['ID'] . '">Ta Bort</a></div>' . $query_result['Text'] . '</div>';
-				} else {
-					echo '<div class="post" id="firstpost"><div class="postheader"></div>' . $query_result['Text'] . '</div>';
-				}
-				$first = False;
+			if ($query_result['User'] == $_COOKIE['login'] || $user_lvl == "A") {
+				echo '<div class="post"><div class="postheader"><a class="creator" href="anvandare.php?nick=' . $query_result['Nick'] . '">' . $query_result['Nick'] . '</a><a class="edit" href="edit_post.php?id=' . $query_result['ID'] . '">Ändra</a><a class="edit" href="delete_post.php?id=' . $query_result['ID'] . '">Ta Bort</a></div>' . $query_result['Text'] . '</div>';
 			}
 			else {
-				if ($query_result['User'] == $_COOKIE['login'] || $user_lvl == "A") {
-					echo '<div class="post"><div class="postheader"><a class="creator" href="anvandare.php?nick=' . $query_result['Nick'] . '">' . $query_result['Nick'] . '</a><a class="edit" href="edit_post.php?id=' . $query_result['ID'] . '">Ändra</a><a class="edit" href="delete_post.php?id=' . $query_result['ID'] . '">Ta Bort</a></div>' . $query_result['Text'] . '</div>';
-				}
-				else {
-					echo '<div class="post"><div class="postheader"></div>' . $query_result['Text'] . '</div>';
-				}
+				echo '<div class="post"><div class="postheader"></div>' . $query_result['Text'] . '</div>';
 			}
 		}
 	}

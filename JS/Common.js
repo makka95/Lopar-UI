@@ -451,4 +451,21 @@ $(document).ready(function () {
 	if (typeof load_site == 'function') {
 		load_site();
 	}
+
+	var sum = 0;
+	$('div.main div#test').each(function () {
+		sum += $(this).height();
+	});
+	if (sum > $("div.contain").height()) {
+		//om alla tre rutor > än conatin div
+		$("div.main div.aktiviteter_news").hide();
+		sum = 0;
+		sum += $("div.main div.ads").height();
+		sum += $("div.main div.forum_news").first().height();
+		if(sum > $("div.contain").height()) {
+			//om forum news + ads divar > contain div
+			$("div.main div.forum_news").hide();
+			$('div.main div.ads').addClass("no-margin-top");
+		}
+	}
 });

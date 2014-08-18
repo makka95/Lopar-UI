@@ -1,8 +1,10 @@
-﻿<!DOCTYPE html>
-<?php
+﻿<?php
 	include "../mysql/Forum/mysql_forum.php";
-	checklogin_kalender();
+	$id = $_GET['id'];
+	setcookie("cat_id", $id, (time()+60*60*24*30));
 ?>
+<!DOCTYPE html>
+
 <head>
 	<title>Löparkollektivet</title>
 	<link rel="StyleSheet" href="../CSS/common/style.css" type="text/css">
@@ -16,11 +18,14 @@
 <body>
 	<?php create_notis_center(); ?>
 	<?php create_login_screen(); ?>
+	
 	<div class="main">
 		<div class="top">
 			<a class="tracker" href="index.php">Hem</a><span class="tracker">></span>
 			<a class="tracker" href="forum.php">Forum</a><span class="tracker">></span>
-			<?php menubar(); ?>
+			<?php
+				menubar(); 
+			?>
 		</div>
 		
 		<a href="forum.php" class="top_link" id="active">Forum</a>
@@ -32,11 +37,13 @@
 		<div class="contain">
 			<div class="forum-container">
 				<div class="forumheader">
-					<span class="forumheadertext">Forumdel</span><span class="forumheadertext" id="two">Senaste Inlägg</span><span class="forumheadertext" id="three">Trådar</span><span class="forumheadertext" id="three">Inlägg</span>
+					<span class="forumheadertext">Ämne</span><span class="forumheadertext" id="two">Skapare</span><span class="forumheadertext" id="three">Antal svar</span><span class="forumheadertext" id="three">Senaste Svar</span>
 				</div>
-				<?php display_categories(); ?>
+				<?php 
+					display_threads(); 
+				?>
 			</div>
-			
+			<button class="form-submit-button" id="kategori" onclick="window.location.assign('skapa_thread.php')">Ny Tråd</button>
 		</div>
 		<?php ads_bar_setup();?>
 		<?php create_footer(); ?>
@@ -44,4 +51,3 @@
 	</div>
 	
 </body>
-		
