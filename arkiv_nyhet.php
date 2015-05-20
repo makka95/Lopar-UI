@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<?php 
+<?php
 	include "mysql/mysql.php";
 	include "mysql/mysql_news.php";
 ?>
@@ -21,7 +21,7 @@
 					$('ul#' + $(this).html()).show();
 					$('ul#' + $(this).html() + ' a').css("display", "none");
 					var year = $(this).html();
-					$('ul#' + $(this).html() + ' li').on('click', function () { 
+					$('ul#' + $(this).html() + ' li').on('click', function () {
 						if ($('a#' + year + '.' + $(this).html()).is(":visible")) {
 							$('a#' + year + '.' + $(this).html()).hide();
 						} else {
@@ -33,16 +33,16 @@
 		}
 	</script>
 	<script src="JS/Common.js"></script>
-	
-	
+
+
 </head>
 
 
 <body>
-	
+
 	<?php create_notis_center(); ?>
 	<?php create_login_screen(); ?>
-	
+
 	<div class="main">
 		<div class="top">
 			<a class="tracker" href="index.php">Hem</a><span class="tracker">></span>
@@ -54,18 +54,20 @@
 		<a href="arkiv_nyhet.php" class="top_link" id="active">Arkiv</a>
 
 		<div class="contain">
-			<br>Nyheter sorterade efter år och månader:<br>
-			<?php
-				get_arkiv_news();
-			?>
+			<div class="arkiv_contain">
+				<br>Nyheter sorterade efter år och månader:<br>
+				<?php
+					get_arkiv_news();
+				?>
+			</div>
 		</div>
-		
+
 		<div class="ads no-margin-top">
 			<img src="http://placehold.it/308x272/ffffff/000000&text=Ads goes here!" alt="placeholder">
 		</div>
-		
+
 		<?php create_footer(); ?>
-		
+
 	</div>
 
 </body>

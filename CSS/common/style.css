@@ -3,6 +3,25 @@
 /*csscomb
 prefixr*/
 
+@font-face {
+  font-family: 'Pathway Gothic One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pathway Gothic One'), local('PathwayGothicOne-Regular'), url(../../PathwayGothicOne-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Satisfy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Satisfy'), local('Satisfy-Regular'), url(../../Satisfy-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'BenchNine';
+  font-style: normal;
+  font-weight: 700;
+  src: local('BenchNine Bold'), local('BenchNine-Bold'), url(../../BenchNine-Regular.ttf) format('truetype');
+}
+
 html {
 	background: url("../../Bilder/running.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -66,7 +85,7 @@ ul.forum_news li a {
 	word-wrap: break-word;
 	max-width: 100px;
 
-	
+
 }
 
 ul.forum_news li a:hover {
@@ -104,15 +123,15 @@ span.nyhet_forum {
 	box-shadow: 0px 2px 3px -1px #CCC inset;
 }
 .form-text-input:focus {
-	border: 2px solid orange;	
+	border: 2px solid orange;
 }
 
 .form-submit-button {
 	border-radius: 0.5em;
-	
+
 	font-weight: bold;
 	font-size: 10pt;
-	
+
 	background-size: 100% auto;
 	background-image: linear-gradient(#FFF, #ECECEC 50%, #DDD 50%, #DADADA);
 }
@@ -127,7 +146,7 @@ span.nyhet_forum {
 	box-shadow: 0px 2px 3px -1px #CCC inset;
 }
 .form-select-input:focus {
-	border: 2px solid orange;	
+	border: 2px solid orange;
 }
 .form-radio-input {
 }
@@ -149,20 +168,21 @@ span.nyhet_forum {
 .no-margin-right {
 	margin-right: 0!important;
 }
-div.main
-{
-	position: absolute;
 
+.content_text {
+	font-size: 10pt;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+div.main {
+	position: absolute;
 	top: 10px;
 	left: 20%;
 	right: 20%;
 	height: auto;
-	min-width: 785px;
 
 	background: rgba(00,00,00,0.5);
-
 	box-shadow: -10px 5px 15px #000000, 10px 5px 15px #000000;
-
 }
 
 div.login_fog {
@@ -263,7 +283,9 @@ a.top_link {
 	position: relative;
 
 	left: 1%;
-	width: 10%;
+	min-width: 9%;
+	padding-left: 0.5%;
+	padding-right: 0.5%;
 	float:left;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -418,6 +440,10 @@ div.notis_center {
 	z-index: 107;
 	border: 2px solid orange;
 	border-left: none;
+
+	box-sizing:border-box;
+  	-moz-box-sizing:border-box;
+  	-webkit-box-sizing:border-box;
 }
 
 div.button {
@@ -430,9 +456,10 @@ div.button {
 	border-bottom-right-radius: 1em;
 	border-top-right-radius: 1em;
 	border: 2px solid orange;
-	
+
 	z-index: 108;
 }
+
 div.button div.arrow {
 	position: absolute;
 	display:table-cell;
@@ -446,7 +473,7 @@ div.button div.arrow {
 	line-height: 28.57px;
 	height: 28.57px;
 	-moz-transform:scale(1,3.5);
-	
+
 }
 
 div.notis_center div.meddelanden {
@@ -459,6 +486,7 @@ div.notis_center div.meddelanden {
 	background: rgba(00,00,00,0);
 
 }
+
 div.meddelande, div.notis {
 	font-size: 10pt;
 }
@@ -622,10 +650,10 @@ form.msg input.skicka {
 	right: 0px;
 	bottom: 0px;
 	border-radius: 0.5em;
-	
+
 	font-weight: bold;
 	font-size: 9pt;
-	
+
 	background-size: 100% auto;
 	background-image: linear-gradient(#FFF, #ECECEC 50%, #DDD 50%, #DADADA);
 }
@@ -676,13 +704,13 @@ button.dec_req {
 div.footer {
 
 	position: relative;
-	
+
 	float: left;
 	height: 5em;
 	width: 100%;
 	left: 0em;
 	bottom: 0em;
-	
+
 	background: rgba(00,00,00,0.5);
 
 }
@@ -690,10 +718,10 @@ div.footer {
 span.footer {
 	position: relative;
 	top: 1.4em;
-	
+
 	font-size: 8pt;
 
-	
+
 }
 
 a.footer {
@@ -734,23 +762,8 @@ span.content {
 	float:right;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }*/
-
-@media only screen and (min--moz-device-pixel-ratio: 2) {
-
-	span.content {
-		font-size: 11pt;
-	}
-
-	div.news {
-		font-size: 14pt;
-	}
-	h1 {
-		font-size: 14pt;
-	}
-
-}
-
 @media only screen and (max-width: 1300px) {
+
 	div.notis_center button.notis {
 		font-size: 12pt;
 	}
@@ -763,3 +776,69 @@ span.content {
 		font-size: 18pt;
 	}
 }
+@media only screen and (min--moz-device-pixel-ratio: 2) {
+
+	div.main {
+		left: 15%;
+		right: 15%;
+
+	}
+	span.content {
+		font-size: 11pt;
+	}
+	.content_text {
+		font-size: 9pt!important;
+	}
+	div.news {
+		font-size: 14pt;
+	}
+	h1 {
+		font-size: 14pt;
+	}
+
+	span.nyhet_forum {
+		font-size: 12pt;
+	}
+	a.top_link {
+		font-size: 10pt;
+		line-height: 25px;
+	}
+	a.footer {
+		font-size: 9pt;
+		left: 20%;
+	}
+	span.footer {
+		font-size: 7pt;
+	}
+
+	/* ----- Notis center ----- */
+
+	div.notis_center {
+		width: 40%;
+		left: -40%;
+		height: 75%;
+		top: 12.5%;
+	}
+	div.meddelande, div.notis {
+		font-size: 8.5pt;
+	}
+	div.notis_center div.lista div.lista_display div.user, div.notis_center div.lista div.lista_display div.notis_lista {
+		font-size: 10pt;
+		height: 20px;
+		line-height: 20px;
+	}
+	div.button div.arrow {
+		font-size: 15pt;
+	}
+
+	/* ----- sök nyheter ----- */
+
+	div.sok {
+		font-size: 10pt;
+	}
+	div.sok form {
+
+	}
+}
+
+

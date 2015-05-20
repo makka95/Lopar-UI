@@ -12,7 +12,7 @@ div.news {
 	border-radius: 10px;
 	font-size: 10pt;
 	float:left;
-	
+
 }
 
 div.news_subject {
@@ -61,11 +61,6 @@ div.news_text {
 	padding-bottom:3%;
 	padding-top: 0%;
 	box-sizing: border-box;
-
-	
-	font-size: 10pt;
-
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 div.news_img_contain {
@@ -164,7 +159,7 @@ div.news_body {
 	padding-top: 0%;
 	box-sizing: border-box;
 
-	
+
 	font-size: 10pt;
 
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -190,6 +185,17 @@ div.sok {
 }
 
 /* ----- ARKIV SIDAN ----- */
+
+div.contain div.arkiv_contain {
+	position: relative;
+	width:92.5%;
+	left: 2.5%;
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+	padding-bottom: 2.5%;
+	padding-left: 2.5%;
+	background: rgba(00, 00, 00, 1);
+}
 
 ul.year, ul.months,ul.links {
 	color: white;
@@ -222,22 +228,25 @@ ul.year li:hover, ul.months li:hover {
 @media only screen and (min--moz-device-pixel-ratio: 2) {
 
 	div.news_subject h1 {
-		font-size: 15pt;
+		font-size: 13pt;
 	}
 	span.news_date {
-		font-size:11pt;
+		font-size:9pt;
+	}
+	div.contain div.arkiv_contain {
+		font-size: 10pt;
 	}
 
 }
 
 @media only screen and (max-width: 1100px) {
-	
+
 	span.nyhet_forum {
 		font-size: 12pt;
 	}
-	
+
 	ul.forum_news {
 		margin-top: 10%;
 	}
-	
+
 }

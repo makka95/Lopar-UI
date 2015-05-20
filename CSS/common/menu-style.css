@@ -46,7 +46,7 @@ ul.menu li a.active
 ul.menu li
 {
 	position: relative;
-	bottom: -0.5em;
+	bottom: -3.5em;
 	right: 2em;
 	width: 7em;
 	height: 4em;
@@ -87,11 +87,11 @@ img.logo {
 }
 
 a.logo {
-	position: relative;
+	position: absolute;
 
 	top: 20px;
 	font-size: 30px;
-	left: -30px;
+	left: 30px;
 	font-weight: bold;
 	color: orange;
 	text-decoration: none;
@@ -132,7 +132,7 @@ div.inlogg
 {
 	positioN: absolute;
 
-	right: 150px;
+	right:10%;
 	width: 180px;
 	height: 35px;
 	top: 0px;
@@ -284,15 +284,30 @@ button.inlogg:hover {
 span.login_text {
 	font-weight: bold;
 	font-size: 15pt;
-	
+
 	position: relative;
-	
+
 	top: 0.3em;
 	left: 0.6em;
 	color: black;
-	
+
 }
 
+
+
+@media only screen and (max-width: 1500px) {
+
+	ul.menu li a {
+		font-size: 14pt;
+
+	}
+	ul.menu li {
+		font-size: 14pt;
+		bottom: -1.05em;
+	}
+
+
+}
 @media only screen and (min--moz-device-pixel-ratio: 2) {
 
 	ul.menu li a {
@@ -306,23 +321,13 @@ span.login_text {
 		font-size: 10pt;
 	}
 	span.tracker, a.tracker {
-		font-size:10pt;
-		top: 70px;
+		font-size:9pt;
+		top: 85px;
 		font-family: Corbel,Verdana,"Bitstream Vera Sans",sans-serif;
 	}
-
-}
-
-@media only screen and (max-width: 1500px) {
-	
-	ul.menu li a {
-		font-size: 14pt;
-		
-	}
 	ul.menu li {
-		font-size: 14pt;
-		bottom: -1.05em;
+		bottom: -3.5em;
 	}
-	
-	
+
+
 }

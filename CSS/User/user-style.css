@@ -59,16 +59,16 @@ form.user-form select[name=lan] {
 	color: white;
 	text-decoration: underline;
  }
- 
+
  span.user-info {
 	color: orange;
 	font-size: 12pt;
 	font-weight: bold;
  }
- 
- 
+
+
  /* ----- Vänner ----- */
- 
+
  div.friends, div.sok_friends, div.friends_result,  form.change-password {
 	position: relative;
 	margin-left: 2%;
@@ -79,10 +79,10 @@ form.user-form select[name=lan] {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	float:left;
-	
+
 	background: rgba(00,00,00, 0.4);
  }
- 
+
  span.friends {
 	position: absolute;
 	width: 100%;
@@ -118,11 +118,11 @@ form.user-form select[name=lan] {
 	background: rgba(00,00,00, 0.4);
 	overflow-y:hidden;
 	overflow-x:hidden;
-	
+
 	box-sizing:border-box;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
-	
+
  }
  div.friend:hover {
 	background: rgba(88,88,88, 0.3);
@@ -171,21 +171,21 @@ div.friend:last-of-type {
 	border: 2px solid white;
 	color: white;
  }
- 
+
  form.sok_friends {
 	position: relative;
 	float: left;
 	width: 100%;
 	margin-top: 5%;
  }
- 
+
  form.sok_friends input.form-text-input {
 	position: relative;
 	float: left;
 	width: 90%;
 	left: 4%;
  }
- 
+
  form.sok_friends input.form-submit-button {
 	position: relative;
 	float:left;
@@ -209,12 +209,12 @@ div.friend:last-of-type {
 	margin-bottom: 20px;
 	margin-left: 18%;
  }
- 
+
  /* ----- User Settings ----- */
  form.change-password {
 	padding-top: 1%;
  }
- 
+
  form.change-password span.change-password,  span.change-password-hint{
 	position: relative;
 	top: 0%;
@@ -224,7 +224,7 @@ div.friend:last-of-type {
 	font-size: 16pt;
 	text-align: center;
  }
- 
+
  form.change-password input.form-text-input, form.change-password input.form-submit-button {
 	position: relative;
 	margin-top: 2%;
@@ -238,4 +238,25 @@ span.change-password-hint {
 form.change-password input.form-submit-button {
 	left: 10%;
 	width: 40%;
+}
+@media only screen and (min--moz-device-pixel-ratio: 2) {
+	/* ----- Användar Data ----- */
+	span.user-nick {
+		font-size: 12pt;
+	}
+	span.user-info, div.user-admin a, div.user-bild, form.user-form {
+		font-size: 9pt;
+	}
+	/* ----- Vänner ----- */
+	a.friend_name, span.friends{
+		font-size: 11pt;
+	}
+	/* ----- Byt Lösenord ----- */
+	form.change-password span.change-password {
+		font-size: 12pt;
+	}
+	span.change-password-hint {
+		font-size: 10pt;
+	}
+
 }

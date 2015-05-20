@@ -2,11 +2,48 @@ var xmlhttp = createxmlhttprequestobject();
 var active = null;
 var store_msg = new Array();
 var ready = true;
+var dpr = getDPR();
 
 function fade_login() {
 
 	$("div.loggain").fadeOut(400);
 	$("div.login_fog").fadeOut(400);
+}
+
+// Get device pixel ratio
+function getDPR() {
+    var mediaQuery;
+    // Fix fake window.devicePixelRatio on mobile Firefox
+    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    if (window.devicePixelRatio !== undefined && !is_firefox) {
+    	return window.devicePixelRatio;
+    } else if (window.matchMedia) {
+    	mediaQuery = "(-webkit-min-device-pixel-ratio: 0.75),\
+    		(min--moz-device-pixel-ratio: 0.75),\
+    		(-o-min-device-pixel-ratio: 3/4),\
+    		(min-resolution: 0.75dppx)";
+    	if (window.matchMedia(mediaQuery).matches) {
+    		mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
+    			(min--moz-device-pixel-ratio: 1.5),\
+    			(-o-min-device-pixel-ratio: 3/2),\
+    			(min-resolution: 1.5dppx)";
+    		if (window.matchMedia(mediaQuery).matches) {
+    			mediaQuery = "(-webkit-min-device-pixel-ratio: 2),\
+    				(min--moz-device-pixel-ratio: 2),\
+    				(-o-min-device-pixel-ratio: 2/1),\
+    				(min-resolution: 2dppx)";
+   				if (window.matchMedia(mediaQuery).matches){
+    				return 2;
+    			} else {
+    				return 1.5;
+    			}
+    		} else {
+    			return 0.75;
+    		}
+    	}
+    } else {
+    	return 1;
+    }
 }
 
 function createxmlhttprequestobject() {
@@ -340,36 +377,51 @@ function notis_lista () {
 		}
 
 	});
-	
+
 	get_notis("alla");
 }
 
 $(document).ready(function () {
 
+
 	$("div.button").click(function () {
 	// 'toggle'
-		
-		if ($("div.notis_center").css("left") == "0px") {
 
-			$("div.notis_center").animate({
-				left: "-30%"
-			}, 500);
-			$("div.button").animate({
-					right: "-40px"
-			}, 200);
+		if ($("div.notis_center").css("left") == "0px") {
+			if(dpr == 1) {
+				$("div.notis_center").animate({
+					left: "-30%"
+				}, 500);
+				$("div.button").animate({
+						right: "-40px"
+				}, 200);
+			} else if (dpr == 2) {
+				$("div.notis_center").animate({
+					left: "-40%"
+				}, 500);
+				$("div.button").animate({
+						right: "-30px"
+				}, 200);
+			}
 		} else {
 			get_friends();
 			get_meddelanden(null);
 			$("div.notis_center").animate({
 				left: "0"
 			}, 500);
-			$("div.button").animate({
+			if (dpr == 1) {
+				$("div.button").animate({
 					right: "-44px"
-			}, 200);
+				}, 200);
+			} else if (dpr == 2) {
+				$("div.button").animate({
+					right: "-34px"
+				}, 200);
+			}
 		}
 
 	});
-	
+
 	$("button.notis").click(function () {
 		if(!$(this).hasClass('active')) {
 			$("button.notis").removeClass("notis active").addClass("notis");
@@ -397,7 +449,7 @@ $(document).ready(function () {
 				}, 200, function () {
 					$("div.skriv").show();
 				});
-				
+
 				get_friends();
 				get_meddelanden(null);
 			}

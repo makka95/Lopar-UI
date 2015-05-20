@@ -18,36 +18,36 @@
 <body>
 	<?php create_notis_center(); ?>
 	<?php create_login_screen(); ?>
-	
+
 	<div class="main">
 		<div class="top">
 			<a class="tracker" href="index.php">Hem</a><span class="tracker">></span>
 			<a class="tracker" href="forum.php">Forum</a><span class="tracker">></span>
 			<?php
-				menubar(); 
+				menubar();
 			?>
 		</div>
-		
+
 		<a href="forum.php" class="top_link" id="active">Forum</a>
-		<a href="#" class="top_link">Sök</a>
+		<a href="sok_forum.php" class="top_link">Sök</a>
 		<a href="#" class="top_link">Mina Trådar</a>
 		<a href="#" class="top_link">Senaste</a>
 		<a href="#" class="top_link">Följda Trådar</a>
-		
+
 		<div class="contain">
 			<div class="forum-container">
 				<div class="forumheader">
 					<span class="forumheadertext">Ämne</span><span class="forumheadertext" id="two">Skapare</span><span class="forumheadertext" id="three">Antal svar</span><span class="forumheadertext" id="three">Senaste Svar</span>
 				</div>
-				<?php 
-					display_threads(); 
+				<?php
+					display_threads();
 				?>
 			</div>
 			<button class="form-submit-button" id="kategori" onclick="window.location.assign('skapa_thread.php')">Ny Tråd</button>
 		</div>
 		<?php ads_bar_setup();?>
 		<?php create_footer(); ?>
-		
+
 	</div>
-	
+
 </body>

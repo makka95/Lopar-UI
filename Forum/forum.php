@@ -22,13 +22,13 @@
 			<a class="tracker" href="forum.php">Forum</a><span class="tracker">></span>
 			<?php menubar(); ?>
 		</div>
-		
+
 		<a href="forum.php" class="top_link" id="active">Forum</a>
-		<a href="#" class="top_link">Sök</a>
+		<a href="sok_forum.php" class="top_link">Sök</a>
 		<a href="#" class="top_link">Mina Trådar</a>
 		<a href="#" class="top_link">Senaste</a>
 		<a href="#" class="top_link">Följda Trådar</a>
-		
+
 		<div class="contain">
 			<div class="forum-container">
 				<div class="forumheader">
@@ -36,12 +36,11 @@
 				</div>
 				<?php display_categories(); ?>
 			</div>
-			
+
 		</div>
 		<?php ads_bar_setup();?>
 		<?php create_footer(); ?>
-		
+
 	</div>
-	
+
 </body>
-		

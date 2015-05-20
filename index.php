@@ -21,7 +21,7 @@
 
 	<?php create_notis_center(); ?>
 	<?php create_login_screen(); ?>
-	
+
 	<div class="main">
 		<div class="top">
 			<a class="tracker" href="index.php">Hem</a><span class="tracker">></span>
@@ -40,7 +40,7 @@
 
 		<?php ads_bar_setup();?>
 		<?php create_footer(); ?>
-		
-		</div>
+
+	</div>
 </body>
 </html>

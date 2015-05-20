@@ -11,30 +11,30 @@
 	<link rel="StyleSheet" href="../CSS/common/menu-style.css" type="text/css">
 	<?php head_setup () ;?>
 	<script src="../JS/Common.js"></script>
-	
-	
+
+
 </head>
 
 
 <body>
 	<?php create_notis_center(); ?>
 	<?php create_login_screen(); ?>
-	
+
 	<div class="main">
 		<div class="top">
 			<a class="tracker" href="index.php">Hem</a><span class="tracker">></span>
 			<a class="tracker" href="forum.php">Forum</a><span class="tracker">></span>
-			<?php 
-				menubar(); 
+			<?php
+				menubar();
 			?>
 		</div>
-		
+
 		<a href="forum.php" class="top_link" id="active">Forum</a>
-		<a href="#" class="top_link">Sök</a>
+		<a href="sok_forum.php" class="top_link">Sök</a>
 		<a href="#" class="top_link">Mina Trådar</a>
 		<a href="#" class="top_link">Senaste</a>
 		<a href="#" class="top_link">Följda Trådar</a>
-		
+
 		<div class="contain">
 			<div class="forum-container">
 				<?php display_post(); ?>
@@ -43,7 +43,7 @@
 		</div>
 		<?php ads_bar_setup();?>
 		<?php create_footer(); ?>
-		
+
 	</div>
-	
+
 </body>
